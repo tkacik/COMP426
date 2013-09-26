@@ -10,7 +10,8 @@
 <body>
 	<div>
 		<h1>Course Search</h1>
-		<div>
+		<div>	
+			<form name="input" action="html_form_action.asp" method="get">
 			<select name="Dept">
 				<option value="COMP">COMP</option>
 			</select>
@@ -19,28 +20,31 @@
 				<option value="<"><</option>
 				<option value=">">></option>
 			</select>
-			<form name="input" action="html_form_action.asp" method="get">
-				<input type="CNum" name="CNumField">
-				<input type="checkbox" name="fit" value="fit">Fit
-				<input type="submit" value="Submit">
-			</form>
-			<select name="Sem">
-				<option value="F2013">Fall 2013</option>
+			<input type="CNum" name="CNumField1">
+			<input type="checkbox" name="fit" value="fit">Fit
+			<input type="checkbox" name="more" value="fit">More
+			<input type="submit" value="Submit">
+			<br>
+			<select name="day">
+				<option value="F2013">MWF</option>
+				<option value="S2013">TR</option>
 			</select>
 			<select name="CNumSel2">
 				<option value="=">=</option>
 				<option value="<"><</option>
 				<option value=">">></option>
 			</select>
-			<input type="CNum" name="CNumField">
+			<input type="CNum" name="CNumField2">
 			<select name="GE1">
 				<option value="BN">BN</option>
 			</select>
-			<select name="Ge2">
+			<select name="GE2">
 				<option value="WB">WB</option>
 			</select>
-			<select name="">
-				<option value=""></option>
+			<select name="Sem">
+				<option value="F2013">Fall 2013</option>
+				<option value="S2013">Spring 2013</option>
+				<option value="F2012">Fall 2012</option>
 			</select>
 		</div>
 		<div>
