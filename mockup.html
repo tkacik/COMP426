@@ -27,60 +27,74 @@
 			<div>
 				<input class="submit" type="submit" value="Search">
 				<input type="text" value="Dept" class="dept">
-				<select name="numSel_1">
+				<select name="numSel">
 					<option value="=">=</option>
 					<option value="<">&lt;</option>
 					<option value=">">&gt;</option>
 				</select>
-				<input type="number" name="cNum_1" class="cnum" value="000">
+				<input type="number" name="cNum" class="cnum" value="000">
+				<select name="ge_1" value="NONE">
+					<option value="none">GE</option>
+					<option value="BN">BN</option>
+					<option value="CI">CI</option>
+					<option value="EE">EE</option>
+					<option value="EN">EN</option>				
+					<option value="FL">FL</option>
+					<option value="GL">GL</option>
+					<option value="HS">HS</option>
+					<option value="LA">LA</option>
+					<option value="LF">LF</option>
+					<option value="NA">NA</option>
+					<option value="PH">PH</option>
+					<option value="PL">PL</option>
+					<option value="PX">PX</option>
+					<option value="QI">QI</option>
+					<option value="QR">QR</option>
+					<option value="SS">SS</option>
+					<option value="US">US</option>
+					<option value="VP">VP</option>
+					<option value="WB">WB</option>
+				</select>
 				<label><input type="checkbox" name="fits" >Fits</label>
 				<label><input type="checkbox" name="open" >Open</label>
 				<a>Advanced Options</a>
 			</div>
 			<div>
-				<select name="day" value="NONE" >
-					<option value="NONE">Day</option>
-					<option value="MWF">MWF</option>
-					<option value="TR">TR</option>
-					<option value="MW">MW</option>
-				</select>
-				<select name="numSel_2">
-					<option value="=">=</option>
-					<option value="<">&lt;</option>
-					<option value=">">&gt;</option>
-				</select>
-				<input type="number" name="cNum_2" class="cnum" value="000">
-				<select name="ge_1" value="NONE">
-					<option value="NONE">GE</option>
-					<option value="BN">BN</option>
-					<option value="WB">WB</option>
-					<option value="GL">GL</option>
-					<option value="HS">HS</option>
-					<option value="SS">SS</option>				
-					<option value="FL">FL</option>
-					<option value="VP">VP</option>
-					<option value="QI">QI</option>
-					<option value="EE">EE</option>
+				<input type="text" value="Instructor" class="instructor">
+				<select name="semester">
+					<option value="F2013">F2013</option>
+					<option value="S2013">S2013</option>
+					<option value="F2012">F2012</option>
 				</select>
 				<select name="ge_2" value="none">
 					<option value="none">GE</option>
 					<option value="BN">BN</option>
-					<option value="WB">WB</option>
+					<option value="CI">CI</option>
+					<option value="EE">EE</option>
+					<option value="EN">EN</option>				
+					<option value="FL">FL</option>
 					<option value="GL">GL</option>
 					<option value="HS">HS</option>
-					<option value="SS">SS</option>				
-					<option value="FL">FL</option>
-					<option value="VP">VP</option>
+					<option value="LA">LA</option>
+					<option value="LF">LF</option>
+					<option value="NA">NA</option>
+					<option value="PH">PH</option>
+					<option value="PL">PL</option>
+					<option value="PX">PX</option>
 					<option value="QI">QI</option>
-					<option value="EE">EE</option>
+					<option value="QR">QR</option>
+					<option value="SS">SS</option>
+					<option value="US">US</option>
+					<option value="VP">VP</option>
+					<option value="WB">WB</option>
 				</select>
-				<select name="semester">
-					<option value="F2013">Fall 2013</option>
-					<option value="S2013">Spring 2013</option>
-					<option value="F2012">Fall 2012</option>
-				</select>
-				<input type="text" value="Instructor" class="instructor">
-				
+				<label><input type="checkbox" name="M" checked>M</label>
+				<label><input type="checkbox" name="T" checked>T</label>
+				<label><input type="checkbox" name="W" checked>W</label>
+				<label><input type="checkbox" name="R" checked>R</label>
+				<label><input type="checkbox" name="F" checked>F</label>
+				<label><input type="checkbox" name="honors">Honors</label>				
+				<label><input type="checkbox" name="lab">Lab</label>				
 			</div>
 		</form>
 		<table class="courseList">
@@ -131,6 +145,7 @@
 				<col class="cnum">
 				<col class ="day">
 				<col class="ctime">
+				<col class="room">
 				<col class="instructor">
 				<col class="icon">
 			</colgroup>
@@ -140,6 +155,7 @@
 					<td>116</td>
 					<td>MWF</td>
 					<td>9:00AM - 9:50AM</td>
+					<td>SN011</td>
 					<td>Stotts</td>
 					<td><input type="submit" value="Remove"></td>						
 				</tr>
@@ -148,6 +164,7 @@
 					<td>116</td>
 					<td>MWF</td>
 					<td>9:00AM - 9:50AM</td>
+					<td>SN014</td>
 					<td>Stotts</td>
 					<td><input type="submit" value="Remove"></td>						
 				</tr>
@@ -156,6 +173,7 @@
 					<td>116</td>
 					<td>MWF</td>
 					<td>9:00AM - 9:50AM</td>
+					<td>FB009</td>
 					<td>Stotts</td>
 					<td><input type="submit" value="Remove"></td>						
 				</tr>
@@ -174,23 +192,40 @@
 				<col class="course">
 				<col class="ge">
 				<col class="course">
+				<col class="ge">
+				<col class="course">
 			</colgroup>
 			<tbody>
 				<tr>
-					<td>BN:</td>	<td>-----</td>
+					<td>QR:</td>	<td>MATH 231</td>
+					<td>LF:</td>	<td>-----</td>
+					<td>FL:</td>	<td>SPAN 203</td>
+					<td>EN:</td>	<td>-----</td>
+				</tr>
+				<tr>
+					<td>PL:</td>	<td>CHEM 101</td>
+					<td>PX:</td>	<td>CHEM 101L</td>
+					<td>VP:</td>	<td>-----</td>
+					<td>LA:</td>	<td>-----</td>
+				</tr>
+				<tr>
 					<td>HS:</td>	<td>-----</td>
-					<td>VP:</td>	<td>MUSC 121</td>
+					<td>SS:</td>	<td>ECON 101</td>
+					<td>SS:</td>	<td>-----</td>
+					<td>PH:</td>	<td>PHIL 126</td>
+				</tr>
+				<tr>
+					<td>CI:</td>	<td>-----</td>
+					<td>US:</td>	<td>-----</td>
+					<td>QI:</td>	<td>MATH 232</td>
+					<td>NA:</td>	<td>-----</td>
 				</tr>
 				<tr>
 					<td>WB:</td>	<td>HIST 142</td>
-					<td>SS:</td>	<td>-----</td>
-					<td>QI:</td>	<td>-----</td>
-				</tr>
-				<tr>
 					<td>GL:</td>	<td>-----</td>
-					<td>FL:</td>	<td>SPAN 203</td>
-					<td>EE:</td>	<td>COMP 523</td>
-				</tr>
+					<td>BN:</td>	<td>-----</td>
+					<td>EE:</td>	<td>-----</td>
+				</tr>				
 			</tbody>
 		</table>
 	</div>
@@ -199,20 +234,22 @@
 	<div class="toolHead"><h2>Tar Heel Tracker 2.0</h2></div>
 	<div class="toolBody">
 		<div>
-			<form>
-				<select class="dept" name="dept">
-					<option value="COMP">COMP</option>
-					<option value="MATH">MATH</option>
-				</select>
-				<select name="Type">
-					<option value="BA">BA</option>
-					<option value="MINOR">Minor</option>
-					<option value="BS">BS</option>
-					<option value="MS">MS</option>
-				</select>
-				<select name="GDYr">
-					<option value="2014">2014</option>
-				</select>
+			<form class="searchBar">
+				<div>
+					<select name="dept">
+						<option value="COMP">COMP</option>
+						<option value="MATH">MATH</option>
+					</select>
+					<select name="Type">
+						<option value="BA">BA</option>
+						<option value="MINOR">Minor</option>
+						<option value="BS">BS</option>
+						<option value="MS">MS</option>
+					</select>
+					<select name="GDYr">
+						<option value="2014">2014</option>
+					</select>
+				</div>
 			</form>
 		</div>
 		<!-- <div id="awesomeDAG">
@@ -220,7 +257,7 @@
 		</div> -->
 		<div>
 			<table id="recommendedCourses" class="courseList">
-				<caption>Recommended:</caption>
+				<caption>Recommended Courses (Semesters Needed):</caption>
 				<colgroup>
 					<col class="dept">
 					<col class="cnum">
@@ -237,7 +274,7 @@
 		</div>
 		<div>
 			<table id="requiredCourses" class="courseList">
-				<caption>Required:</caption>
+				<caption>Required Courses (Prerequisites):</caption>
 				<colgroup>
 					<col class="dept">
 					<col class="cnum">
@@ -261,12 +298,13 @@
 </div>
 <div id="courseHistory" class="tool inner">
 	<div class="toolHead"><h2>Course History</h2></div>
-	<div>
+	<div class="toolBody">
 		<table class="courseList">
 			<colgroup>
 				<col class="semester">
 				<col class="dept">
 				<col class="cnum">
+				<col class="grade">
 				<col class="day">
 				<col class="ctime">
 				<col class="instructor">
@@ -276,6 +314,7 @@
 					<td>S2013</td>
 					<td>COMP</td>
 					<td>116</td>
+					<td>A</td>
 					<td>MWF</td>
 					<td>9:00AM - 9:50AM</td>
 					<td>Stotts</td>
@@ -284,6 +323,7 @@
 					<td>S2013</td>
 					<td>COMP</td>
 					<td>116</td>
+					<td>A</td>
 					<td>MWF</td>
 					<td>9:00AM - 9:50AM</td>
 					<td>Pozefsky</td>
@@ -292,6 +332,7 @@
 					<td>S2013</td>
 					<td>COMP</td>
 					<td>116</td>
+					<td>A</td>
 					<td>MWF</td>
 					<td>9:00AM - 9:50AM</td>
 					<td>Mayer-Patel</td>

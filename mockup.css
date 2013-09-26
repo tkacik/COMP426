@@ -62,11 +62,7 @@ MeyerWeb Reset
 Dev-Test CSS
 **************************************/
 
-div {
-	border: 1px solid black;
-	margin: 1px;
-	padding: 1px;
-}
+ 
 
 /**************************************
 Primary CSS
@@ -133,8 +129,8 @@ body {
   overflow: auto;
 }
 
-div.inner, header.inner{
-  padding-bottom: 20px;
+div.inner {
+  padding-bottom: 15px;
 }
 
 header, footer {
@@ -176,15 +172,24 @@ a {
   color: #569FD3;
   text-shadow: none;
   
-  transition: color 1s ease;
+  transition: background 1s ease;
   transition: text-shadow .5s ease;
-  -webkit-transition: color 1s ease;
+  -webkit-transition: background 1s ease;
   -webkit-transition: text-shadow .5s ease;
 }
 
 .toolHead {
 	color: #f2f2f2;
 	background: #212121;
+	
+	transition: color 1s ease;
+	transition: text-shadow .5s ease;
+	-webkit-transition: color 1s ease;
+	-webkit-transition: text-shadow .5s ease;
+}
+
+.toolHead:hover {
+	text-shadow: #f0f0f0 0px 0px 1.0px;
 }
 
 .searchBar {
@@ -207,12 +212,35 @@ a {
 	background-color: #AAAAAA;
 }
 
+.courseList caption {
+	background-color: #BBBBBB;
+}
+
 /**************************************
 Content Formatting CSS
 **************************************/
 
 table {
 	width: 100%;
+}
+
+table td {
+	text-align: center;
+}
+
+.toolHead {
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;	
+}
+
+.toolHead * {
+	padding-left: 15px;
+}
+
+div.toolBody {
+	border-bottom: 1px solid #424242;
+	border-left: 1px solid #424242;
+	border-right: 1px solid #424242;
 }
 
 .searchBar > div > * {
@@ -235,8 +263,12 @@ table {
 	width: 4em;
 }
 
+.grade {
+	width: 2em;
+}
+
 .ctime {
-	width: 12em;
+	width: 10em;
 }
 
 .instructor {
@@ -247,8 +279,16 @@ table {
 	width: 4em;
 }
 
+.room {
+	width: 4em;
+}
+
 .ge {
 	width: 2em;
+}
+
+#geTable td:nth-child(odd){
+	font-weight: bold;
 }
 
 .course {
@@ -260,4 +300,11 @@ table {
 
 caption {
 	text-align: left;
+	padding-left: 15px;
+	font-weight: bold;
 }
+
+#courseSearch {
+	padding-top: 15px;
+}
+
