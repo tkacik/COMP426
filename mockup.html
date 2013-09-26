@@ -29,11 +29,12 @@
 				<input type="text" value="Dept" class="dept">
 				<select name="numSel_1">
 					<option value="=">=</option>
-					<option value="<"><</option>
-					<option value=">">></option>
+					<option value="<">&lt;</option>
+					<option value=">">&gt;</option>
 				</select>
 				<input type="number" name="cNum_1" class="cnum" value="000">
-				<label><input type="checkbox" name="fit" value="fit">Fit</label>
+				<label><input type="checkbox" name="fits" >Fits</label>
+				<label><input type="checkbox" name="open" >Open</label>
 				<a>Advanced Options</a>
 			</div>
 			<div>
@@ -41,11 +42,12 @@
 					<option value="NONE">Day</option>
 					<option value="MWF">MWF</option>
 					<option value="TR">TR</option>
+					<option value="MW">MW</option>
 				</select>
 				<select name="numSel_2">
 					<option value="=">=</option>
-					<option value="<"><</option>
-					<option value=">">></option>
+					<option value="<">&lt;</option>
+					<option value=">">&gt;</option>
 				</select>
 				<input type="number" name="cNum_2" class="cnum" value="000">
 				<select name="ge_1" value="NONE">
@@ -77,6 +79,8 @@
 					<option value="S2013">Spring 2013</option>
 					<option value="F2012">Fall 2012</option>
 				</select>
+				<input type="text" value="Instructor" class="instructor">
+				
 			</div>
 		</form>
 		<table class="courseList">
@@ -86,7 +90,7 @@
 				<col class="day">
 				<col class="ctime">
 				<col class="instructor">
-				<col class="addCourse">
+				<col class="icon">
 			</colgroup>
 			<tbody>
 				<tr>
@@ -128,7 +132,7 @@
 				<col class ="day">
 				<col class="ctime">
 				<col class="instructor">
-				<col class="dropCourse">
+				<col class="icon">
 			</colgroup>
 			<tbody>
 				<tr>
@@ -163,6 +167,14 @@
 	<div class="toolHead"><h2>General Education Requirements</h2></div>
 	<div class="toolBody">
 		<table id="geTable">
+			<colgroup>
+				<col class="ge">
+				<col class="course">
+				<col class="ge">
+				<col class="course">
+				<col class="ge">
+				<col class="course">
+			</colgroup>
 			<tbody>
 				<tr>
 					<td>BN:</td>	<td>-----</td>
@@ -207,7 +219,7 @@
 			For Flowchart
 		</div> -->
 		<div>
-			<table id="recommendedCourses">
+			<table id="recommendedCourses" class="courseList">
 				<caption>Recommended:</caption>
 				<colgroup>
 					<col class="dept">
@@ -224,7 +236,7 @@
 			</table>
 		</div>
 		<div>
-			<table id="requiredCourses">
+			<table id="requiredCourses" class="courseList">
 				<caption>Required:</caption>
 				<colgroup>
 					<col class="dept">
@@ -252,29 +264,38 @@
 	<div>
 		<table class="courseList">
 			<colgroup>
+				<col class="semester">
 				<col class="dept">
 				<col class="cnum">
 				<col class="day">
-				<col class="ctime"
+				<col class="ctime">
 				<col class="instructor">
-				<col class="semester">
 			</colgroup>
 			<tbody>
 				<tr>
+					<td>S2013</td>
 					<td>COMP</td>
 					<td>116</td>
 					<td>MWF</td>
 					<td>9:00AM - 9:50AM</td>
 					<td>Stotts</td>
-					<td>S2013</td>
 				</tr>
 				<tr>
+					<td>S2013</td>
 					<td>COMP</td>
 					<td>116</td>
 					<td>MWF</td>
 					<td>9:00AM - 9:50AM</td>
 					<td>Pozefsky</td>
+				</tr>
+				<tr>
 					<td>S2013</td>
+					<td>COMP</td>
+					<td>116</td>
+					<td>MWF</td>
+					<td>9:00AM - 9:50AM</td>
+					<td>Mayer-Patel</td>
+					
 				</tr>
 			</tbody>
 		</table>
