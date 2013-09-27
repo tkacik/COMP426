@@ -1,0 +1,263 @@
+/*************************************
+This CSS Style-Sheet created by
+T. J. Tkacik and Kevin Guo for 
+Assignment 2 of COMP 426-f13
+**************************************/
+
+
+/*************************************
+MeyerWeb Reset
+**************************************/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+		html, body, div, span, applet, object, iframe,
+		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+		a, abbr, acronym, address, big, cite, code,
+		del, dfn, em, img, ins, kbd, q, s, samp,
+		small, strike, strong, sub, sup, tt, var,
+		b, u, i, center,
+		dl, dt, dd, ol, ul, li,
+		fieldset, form, label, legend,
+		table, caption, tbody, tfoot, thead, tr, th, td,
+		article, aside, canvas, details, embed, 
+		figure, figcaption, footer, header, hgroup, 
+		menu, nav, output, ruby, section, summary,
+		time, mark, audio, video {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-size: 100%;
+			font: inherit;
+			vertical-align: baseline;
+		}
+		/* HTML5 display-role reset for older browsers */
+		article, aside, details, figcaption, figure, 
+		footer, header, hgroup, menu, nav, section {
+			display: block;
+		}
+		body {
+			line-height: 1;
+		}
+		ol, ul {
+			list-style: none;
+		}
+		blockquote, q {
+			quotes: none;
+		}
+		blockquote:before, blockquote:after,
+		q:before, q:after {
+			content: '';
+			content: none;
+		}
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+
+/**************************************
+Dev-Test CSS
+**************************************/
+
+div {
+	border: 1px solid black;
+	margin: 1px;
+	padding: 1px;
+}
+
+/**************************************
+Primary CSS
+**************************************/
+
+h1 {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+h2 {
+  padding-bottom: 5px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+h3 {
+  padding-top: 3px;
+  padding-bottom: 2px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.hidden {
+	display: none;
+}
+
+em {
+  font-style: italic;
+}
+
+ul li {
+  list-style: inside;
+  padding-left: 20px;
+}
+
+ol li {
+  list-style: decimal inside;
+  padding-left: 20px;
+}
+
+strong {
+  font-weight: bold;
+}
+
+body {
+  box-sizing: content-box;
+  background: #212121;
+  font-size: 16px;
+  font-family: 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.outer {
+  width: 100%;
+}
+
+.inner {
+  position: relative;
+  max-width: 640px;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+div.inner, header.inner{
+  padding-bottom: 20px;
+}
+
+header, footer {
+  padding: 10px 0px;
+}
+
+#main_content {
+  padding-top: 15px;
+}
+
+/**************************************
+Coloring CSS
+**************************************/
+
+#header_wrap, #footer_wrap {
+  color: #f2f2f2;
+  background: #212121;
+}
+
+#main_content_wrap {
+  color:#373737;
+  background: #f2f2f2;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #111;
+}
+
+#main_content_wrap a:hover {
+  color: #1C5C89;
+  text-shadow: #81BEE9 0px 0px 1.5px;
+}
+
+#header_wrap a:hover, #footer_wrap a:hover, #main_content_wrap .searchBar a:hover {
+  color: #56A0D3;
+  text-shadow: #9DCAE9 0px 0px 1.5px;
+}
+
+a {
+  text-decoration: none;
+  color: #569FD3;
+  text-shadow: none;
+  
+  transition: color 1s ease;
+  transition: text-shadow .5s ease;
+  -webkit-transition: color 1s ease;
+  -webkit-transition: text-shadow .5s ease;
+}
+
+.toolHead {
+	color: #f2f2f2;
+	background: #212121;
+}
+
+.searchBar {
+	color: #f2f2f2;
+	background: #424242;
+}
+
+#geTable tr:nth-child(odd) td:nth-child(4n-1),
+	#geTable tr:nth-child(odd) td:nth-child(4n),
+	#geTable tr:nth-child(even) td:nth-child(4n-2),
+	#geTable tr:nth-child(even) td:nth-child(4n-3) {
+	background-color: #CCCCCC;
+}
+
+.courseList tr:nth-child(even) {
+	background-color: #CCCCCC;
+}
+
+.courseList tr:hover {
+	background-color: #AAAAAA;
+}
+
+/**************************************
+Content Formatting CSS
+**************************************/
+
+table {
+	width: 100%;
+}
+
+.searchBar > div > * {
+	margin: 3px;
+}
+
+.cnum {
+	width: 3em;
+}
+
+.dept {
+	width: 4em;
+}
+
+.day {
+	width: 4em;
+}
+
+.semester {
+	width: 4em;
+}
+
+.ctime {
+	width: 12em;
+}
+
+.instructor {
+	width: 6em;
+}
+
+.icon {
+	width: 4em;
+}
+
+.ge {
+	width: 2em;
+}
+
+.course {
+	width: 5em;
+}
+.submit {
+	float: right;
+}
+
+caption {
+	text-align: left;
+}

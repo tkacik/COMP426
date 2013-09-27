@@ -8,154 +8,308 @@
 </head>
 
 <body>
-	<div>
-		<h1>Course Search</h1>
-		<div>
-			<select name="Dept">
-				<option value="COMP">COMP</option>
-			</select>
-			<select name="CNumSel1">
-				<option value="=">=</option>
-				<option value="<"><</option>
-				<option value=">">></option>
-			</select>
-			<form name="input" action="html_form_action.asp" method="get">
-				<input type="CNum" name="CNumField">
-				<input type="checkbox" name="fit" value="fit">Fit
-				<input type="submit" value="Submit">
-			</form>
-			<select name="Sem">
-				<option value="F2013">Fall 2013</option>
-			</select>
-			<select name="CNumSel2">
-				<option value="=">=</option>
-				<option value="<"><</option>
-				<option value=">">></option>
-			</select>
-			<input type="CNum" name="CNumField">
-			<select name="GE1">
-				<option value="BN">BN</option>
-			</select>
-			<select name="Ge2">
-				<option value="WB">WB</option>
-			</select>
-			<select name="">
-				<option value=""></option>
-			</select>
-		</div>
-		<div>
-			<table>
+<!-- PAGE HEADER -->
+<div id="header_wrap" class="outer">
+	<header class="inner">
+	<h1>Course Planner</h1>
+	
+	</header>
+</div>
+
+
+<!-- PAGE BODY -->
+<div id="main_content_wrap" class="outer">
+
+<div id="courseSearch" class="tool inner">
+	<div class="toolHead"><h2>Course Search</h2></div>
+	<div class="toolBody">	
+		<form class="searchBar" name="input" action="html_form_action.asp" method="get">
+			<div>
+				<input class="submit" type="submit" value="Search">
+				<input type="text" value="Dept" class="dept">
+				<select name="numSel_1">
+					<option value="=">=</option>
+					<option value="<">&lt;</option>
+					<option value=">">&gt;</option>
+				</select>
+				<input type="number" name="cNum_1" class="cnum" value="000">
+				<label><input type="checkbox" name="fits" >Fits</label>
+				<label><input type="checkbox" name="open" >Open</label>
+				<a>Advanced Options</a>
+			</div>
+			<div>
+				<select name="day" value="NONE" >
+					<option value="NONE">Day</option>
+					<option value="MWF">MWF</option>
+					<option value="TR">TR</option>
+					<option value="MW">MW</option>
+				</select>
+				<select name="numSel_2">
+					<option value="=">=</option>
+					<option value="<">&lt;</option>
+					<option value=">">&gt;</option>
+				</select>
+				<input type="number" name="cNum_2" class="cnum" value="000">
+				<select name="ge_1" value="NONE">
+					<option value="NONE">GE</option>
+					<option value="BN">BN</option>
+					<option value="WB">WB</option>
+					<option value="GL">GL</option>
+					<option value="HS">HS</option>
+					<option value="SS">SS</option>				
+					<option value="FL">FL</option>
+					<option value="VP">VP</option>
+					<option value="QI">QI</option>
+					<option value="EE">EE</option>
+				</select>
+				<select name="ge_2" value="none">
+					<option value="none">GE</option>
+					<option value="BN">BN</option>
+					<option value="WB">WB</option>
+					<option value="GL">GL</option>
+					<option value="HS">HS</option>
+					<option value="SS">SS</option>				
+					<option value="FL">FL</option>
+					<option value="VP">VP</option>
+					<option value="QI">QI</option>
+					<option value="EE">EE</option>
+				</select>
+				<select name="semester">
+					<option value="F2013">Fall 2013</option>
+					<option value="S2013">Spring 2013</option>
+					<option value="F2012">Fall 2012</option>
+				</select>
+				<input type="text" value="Instructor" class="instructor">
+				
+			</div>
+		</form>
+		<table class="courseList">
+			<colgroup>
+				<col class="dept">
+				<col class="cnum">
+				<col class="day">
+				<col class="ctime">
+				<col class="instructor">
+				<col class="icon">
+			</colgroup>
+			<tbody>
 				<tr>
 					<td>COMP</td>
 					<td>116</td>
 					<td>MWF</td>
-					<td>9:00AM</td>
-					<td>Instructor</td>
+					<td>9:00AM - 9:50AM</td>
+					<td>Mayer-Patel</td>
+					<td><input type="submit" value="Add"></td>
+					
 				</tr>
 				<tr>
 					<td>COMP</td>
 					<td>401</td>
 					<td>TR</td>
-					<td>8:00AM</td>
-					<td>Instructor</td>
+					<td>8:00AM - 9:15AM</td>
+					<td>Pozefsky</td>
+					<td><input type="submit" value="Add"></td>
 				</tr>
 				<tr>
 					<td>COMP</td>
 					<td>410</td>
-					<td>MWF</td>
-					<td>9:00AM</td>
-					<td>Instructor</th>
+					<td>MW</td>
+					<td>9:30AM - 10:45AM</td>
+					<td>Jeffay</th>
+					<td><input type="submit" value="Add"></td>
 				</tr>
-			</table>
-		</div>
+			</tbody>
+		</table>
 	</div>
-	<div>
-		<h1>My Courses</h1>
-		<div>
-			<table>
+</div>
+<div id="myCourses" class="tool inner">
+	<div class="toolHead"><h2>My Courses</h2></div>
+	<div class="toolBody">
+		<table class="courseList">
+			<colgroup>
+				<col class="dept">
+				<col class="cnum">
+				<col class ="day">
+				<col class="ctime">
+				<col class="instructor">
+				<col class="icon">
+			</colgroup>
+			<tbody>
 				<tr>
 					<td>COMP</td>
 					<td>116</td>
 					<td>MWF</td>
-					<td>9:00AM</td>
-					<td>Instructor</td>
-				</tr>
-			</table>
-		</div>
-	</div>
-	<div>
-		<h1>General Education Requirements</h1>
-		<div>
-			<table>
-				<tr>
-					<td>BN:</td>
-					<td>HS:</td>
-					<td>VP:</td>
-				</tr>
-				<tr>
-					<td>WB:</td>
-					<td>SS:</td>
-					<td>CI:</td>
-				</tr>
-				<tr>
-					<td>GL:</td>
-					<td>FL:</td>
-					<td>EE:</td>
-				</tr>
-			</table>
-		</div>
-	</div>
-	<div>
-		<h1>Tar Heel Tracker 2.0</h1>
-		<div>
-			<select name="Dept">
-				<option value="COMP">COMP</option>
-			</select>
-			<select name="Type">
-				<option value="Type">BA</option>
-				<option value="Type">BS</option>
-			</select>
-			<select name="GDYr">
-				<option value="GDYr2014">2014</option>
-			</select>
-		</div>
-		<div>
-			For Flowchart
-		</div>
-		<div>
-			Recommended:
-			<table>
-				<tr>
-					<td>COMP</td>
-					<td>410</td>
-				</tr>
-			</table>
-		</div>
-		<div>
-			Required
-			<table>
-				<tr>
-					<td>COMP</td>
-					<td>410</td>
+					<td>9:00AM - 9:50AM</td>
+					<td>Stotts</td>
+					<td><input type="submit" value="Remove"></td>						
 				</tr>
 				<tr>
 					<td>COMP</td>
-					<td>411</td>
-				</tr>
-			</table>
-		</div>
-	</div>
-	<div>
-		<h1>Course History</h1>
-		<table>
-				<tr>
-					<td>COMP</td>
-					<td>101</td>
+					<td>116</td>
 					<td>MWF</td>
-					<td>9:00AM</td>
-					<td>Instructor</td>
+					<td>9:00AM - 9:50AM</td>
+					<td>Stotts</td>
+					<td><input type="submit" value="Remove"></td>						
 				</tr>
+				<tr>
+					<td>COMP</td>
+					<td>116</td>
+					<td>MWF</td>
+					<td>9:00AM - 9:50AM</td>
+					<td>Stotts</td>
+					<td><input type="submit" value="Remove"></td>						
+				</tr>
+			</tbody>
 		</table>
 	</div>
- </body>
+</div>
+<div id="geRequirements" class="tool inner">
+	<div class="toolHead"><h2>General Education Requirements</h2></div>
+	<div class="toolBody">
+		<table id="geTable">
+			<colgroup>
+				<col class="ge">
+				<col class="course">
+				<col class="ge">
+				<col class="course">
+				<col class="ge">
+				<col class="course">
+			</colgroup>
+			<tbody>
+				<tr>
+					<td>BN:</td>	<td>-----</td>
+					<td>HS:</td>	<td>-----</td>
+					<td>VP:</td>	<td>MUSC 121</td>
+				</tr>
+				<tr>
+					<td>WB:</td>	<td>HIST 142</td>
+					<td>SS:</td>	<td>-----</td>
+					<td>QI:</td>	<td>-----</td>
+				</tr>
+				<tr>
+					<td>GL:</td>	<td>-----</td>
+					<td>FL:</td>	<td>SPAN 203</td>
+					<td>EE:</td>	<td>COMP 523</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div id="tracker" class="tool inner">
+	<div class="toolHead"><h2>Tar Heel Tracker 2.0</h2></div>
+	<div class="toolBody">
+		<div>
+			<form>
+				<select class="dept" name="dept">
+					<option value="COMP">COMP</option>
+					<option value="MATH">MATH</option>
+				</select>
+				<select name="Type">
+					<option value="BA">BA</option>
+					<option value="MINOR">Minor</option>
+					<option value="BS">BS</option>
+					<option value="MS">MS</option>
+				</select>
+				<select name="GDYr">
+					<option value="2014">2014</option>
+				</select>
+			</form>
+		</div>
+		<!-- <div id="awesomeDAG">
+			For Flowchart
+		</div> -->
+		<div>
+			<table id="recommendedCourses" class="courseList">
+				<caption>Recommended:</caption>
+				<colgroup>
+					<col class="dept">
+					<col class="cnum">
+					<col class="height">
+				</colgroup>
+				<tbody>
+					<tr>
+						<td>COMP</td>
+						<td>401</td>
+						<td>(5)</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div>
+			<table id="requiredCourses" class="courseList">
+				<caption>Required:</caption>
+				<colgroup>
+					<col class="dept">
+					<col class="cnum">
+					<col class="preqs">
+				</colgroup>
+				<tbody>
+					<tr>
+						<td>COMP</td>
+						<td>410</td>
+						<td>(COMP 401)</td>
+					</tr>
+					<tr>
+						<td>COMP</td>
+						<td>411</td>
+						<td>(COMP 401)</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<div id="courseHistory" class="tool inner">
+	<div class="toolHead"><h2>Course History</h2></div>
+	<div>
+		<table class="courseList">
+			<colgroup>
+				<col class="semester">
+				<col class="dept">
+				<col class="cnum">
+				<col class="day">
+				<col class="ctime">
+				<col class="instructor">
+			</colgroup>
+			<tbody>
+				<tr>
+					<td>S2013</td>
+					<td>COMP</td>
+					<td>116</td>
+					<td>MWF</td>
+					<td>9:00AM - 9:50AM</td>
+					<td>Stotts</td>
+				</tr>
+				<tr>
+					<td>S2013</td>
+					<td>COMP</td>
+					<td>116</td>
+					<td>MWF</td>
+					<td>9:00AM - 9:50AM</td>
+					<td>Pozefsky</td>
+				</tr>
+				<tr>
+					<td>S2013</td>
+					<td>COMP</td>
+					<td>116</td>
+					<td>MWF</td>
+					<td>9:00AM - 9:50AM</td>
+					<td>Mayer-Patel</td>
+					
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+	
+</div>
+
+
+<!-- PAGE FOOTER -->
+<div id="footer_wrap" class="outer">
+	<footer class="inner">
+	
+	</footer>
+</div>
+</body>
 </html>
