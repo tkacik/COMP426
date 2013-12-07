@@ -1,0 +1,98 @@
+<?php
+
+class Section
+{
+	private $id;
+	private $course;
+	private $sec_num;
+	private $size;
+	private $max;
+	private $prof;
+	private $location;
+	private $time_slot;
+	private $semester;
+
+	public static function findByID($id){
+		$mysqli = new mysqli("classroom.cs.unc.edu", "guok", "CH@ngemenow99Please!guok", "guokdb");
+
+		$result = $mysqli->query("select * from Section where id = " . $id);
+	    if ($result) {
+	      if ($result->num_rows == 0) {
+		       return null;
+	      }
+
+	      $section_info = $result->fetch_array();
+
+	    return new Address(intval($address_info['id']),
+			$section_info['dept'],
+			$section_info[''],
+			$section_info[''],
+	        $section_info[''],
+	        $section_info['']);
+	    }
+	    return null;
+	  }
+	}
+
+	public static function getAllIDs() {
+	    $mysqli = new mysqli("classroom.cs.unc.edu", "guok", "CH@ngemenow99Please!guok", "guokdb");
+
+	    $result = $mysqli->query("select id from Section");
+	    $id_array = array();
+
+	    if ($result) {
+	      while ($next_row = $result->fetch_array()) {
+		$id_array[] = intval($next_row['id']);
+	      }
+	    }
+	    return $id_array;
+	}
+
+	public function __construct($id, $dept, $Section_num, $description, $honors, $lab){
+		$this->id = $id;
+		$this->course = $course;
+		$this->sec_num = $sec_num;
+		$this->size = $size;
+		$this->max = $max;
+		$this->prof = $prof;
+		$this->location = $location;
+		$this->time_slot = $time_slot;
+		$this->semester = $semester;
+	}
+
+	public function getID(){
+		return $this->id;
+	}
+
+	public function getDept(){
+		return $this->dept;
+	}
+
+	public function getSectionNum(){
+		return $this->Section_num;
+	}
+
+	public function getDescription(){
+		return $this->description;
+	}
+
+	public function getHonors(){
+		return $this->honors;
+	}
+
+	public function getLab(){
+		return $this->lab;
+	}
+
+	public function getJSON() {
+		$json_obj = array('id' => $this->id,
+			'dept' => $this->dept,
+			'Section_num' => $this->Section_num,
+			'description' => $this->description,
+			'honors' => $this->honors,
+			'lab' => $this->lab,
+			);
+		return json_encode($json_obj);
+	}
+}
+?>
