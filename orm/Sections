@@ -24,11 +24,14 @@ class Section
 	      $section_info = $result->fetch_array();
 
 	    return new Address(intval($address_info['id']),
-			$section_info['dept'],
-			$section_info[''],
-			$section_info[''],
-	        $section_info[''],
-	        $section_info['']);
+			$section_info['course'],
+			$section_info['sec_num'],
+			$section_info['size'],
+	        $section_info['max'],
+	        $section_info['prof'],
+	        $section_info['location'],
+	        $section_info['time_slot'],
+	        $section_info['semester']);
 	    }
 	    return null;
 	  }
@@ -64,33 +67,48 @@ class Section
 		return $this->id;
 	}
 
-	public function getDept(){
-		return $this->dept;
+	public function getCourse(){}
+		return $this->course;
 	}
 
-	public function getSectionNum(){
-		return $this->Section_num;
+	public function getSecNum(){
+		return $this->sec_num;
 	}
 
-	public function getDescription(){
-		return $this->description;
+	public function getSize(){
+		return $this->size;
 	}
 
-	public function getHonors(){
-		return $this->honors;
+	public function getMax(){
+		return $this->max;
 	}
 
-	public function getLab(){
-		return $this->lab;
+	public function getProf(){
+		return $this->prof;
+	}
+
+	public function getLocation(){
+		return $this->location;
+	}
+
+	public function getTimeSlot(){
+		return $this->time_slot;
+	}
+
+	public function getSemester(){
+		return $this->semester;
 	}
 
 	public function getJSON() {
 		$json_obj = array('id' => $this->id,
-			'dept' => $this->dept,
-			'Section_num' => $this->Section_num,
-			'description' => $this->description,
-			'honors' => $this->honors,
-			'lab' => $this->lab,
+			'course' => $this->course,
+			'sec_num' => $this->sec_num,
+			'size' => $this->size,
+			'max' => $this->max,
+			'prof' => $this->prof,
+			'location' => $this->location,
+			'time_slot' => $this->time_slot,
+			'semester' => $this->semester
 			);
 		return json_encode($json_obj);
 	}

@@ -84,7 +84,7 @@ class Course
 			'course_num' => $this->course_num,
 			'description' => $this->description,
 			'honors' => $this->honors,
-			'lab' => $this->lab,
+			'lab' => $this->lab
 			);
 		return json_encode($json_obj);
 	}
