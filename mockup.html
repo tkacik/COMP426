@@ -5,6 +5,8 @@
 	<meta charset="UTF-8">
     <title>CoursePlanner</title>
 	<link rel="stylesheet" type="text/css" href="mockup.css" />
+	<script type="text/javascript" src="http://www.cs.unc.edu/Courses/comp426-f13/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="mockup.js"></script>
 </head>
 
 <body>
@@ -23,7 +25,7 @@
 <div id="courseSearch" class="tool inner">
 	<div class="toolHead"><h2>Course Search</h2></div>
 	<div class="toolBody">	
-		<form class="searchBar" name="input" action="html_form_action.asp" method="get">
+		<form class="searchBar" name="input">
 			<div>
 				<input class="submit" type="submit" value="Search">
 				<input type="text" value="Dept" class="dept">
@@ -33,7 +35,7 @@
 					<option value=">">&gt;</option>
 				</select>
 				<input type="number" name="cNum" class="cnum" value="000">
-				<select name="ge_1">
+				<select name="ge">
 					<option value="none">GE</option>
 					<option value="BN">BN</option>
 					<option value="CI">CI</option>
@@ -55,46 +57,14 @@
 					<option value="VP">VP</option>
 					<option value="WB">WB</option>
 				</select>
-				<label><input type="checkbox" name="fits" >Fits</label>
-				<label><input type="checkbox" name="open" >Open</label>
-				<a>Advanced Options</a>
-			</div>
-			<div>
 				<input type="text" value="Instructor" class="instructor">
 				<select name="semester">
 					<option value="F2013">F2013</option>
 					<option value="S2013">S2013</option>
 					<option value="F2012">F2012</option>
 				</select>
-				<select name="ge_2">
-					<option value="none">GE</option>
-					<option value="BN">BN</option>
-					<option value="CI">CI</option>
-					<option value="EE">EE</option>
-					<option value="EN">EN</option>				
-					<option value="FL">FL</option>
-					<option value="GL">GL</option>
-					<option value="HS">HS</option>
-					<option value="LA">LA</option>
-					<option value="LF">LF</option>
-					<option value="NA">NA</option>
-					<option value="PH">PH</option>
-					<option value="PL">PL</option>
-					<option value="PX">PX</option>
-					<option value="QI">QI</option>
-					<option value="QR">QR</option>
-					<option value="SS">SS</option>
-					<option value="US">US</option>
-					<option value="VP">VP</option>
-					<option value="WB">WB</option>
-				</select>
-				<label><input type="checkbox" name="M" checked>M</label>
-				<label><input type="checkbox" name="T" checked>T</label>
-				<label><input type="checkbox" name="W" checked>W</label>
-				<label><input type="checkbox" name="R" checked>R</label>
-				<label><input type="checkbox" name="F" checked>F</label>
-				<label><input type="checkbox" name="honors">Honors</label>				
-				<label><input type="checkbox" name="lab">Lab</label>				
+				<label><input type="checkbox" class="honors">Honors</label>				
+				<label><input type="checkbox" class="lab">Lab</label>				
 			</div>
 		</form>
 		<table class="courseList">
@@ -103,6 +73,7 @@
 				<col class="cnum">
 				<col class="day">
 				<col class="ctime">
+				<col class="room">
 				<col class="instructor">
 				<col class="icon">
 			</colgroup>
@@ -112,6 +83,7 @@
 					<td>116</td>
 					<td>MWF</td>
 					<td>9:00AM - 9:50AM</td>
+					<td>SN011</td>
 					<td>Mayer-Patel</td>
 					<td><input type="submit" value="Add"></td>
 					
@@ -121,6 +93,7 @@
 					<td>401</td>
 					<td>TR</td>
 					<td>8:00AM - 9:15AM</td>
+					<td>SN011</td>
 					<td>Pozefsky</td>
 					<td><input type="submit" value="Add"></td>
 				</tr>
@@ -129,6 +102,7 @@
 					<td>410</td>
 					<td>MW</td>
 					<td>9:30AM - 10:45AM</td>
+					<td>SN011</td>
 					<td>Jeffay</td>
 					<td><input type="submit" value="Add"></td>
 				</tr>
@@ -136,6 +110,7 @@
 		</table>
 	</div>
 </div>
+
 <div id="myCourses" class="tool inner">
 	<div class="toolHead"><h2>My Courses</h2></div>
 	<div class="toolBody">
@@ -157,7 +132,7 @@
 					<td>9:00AM - 9:50AM</td>
 					<td>SN011</td>
 					<td>Stotts</td>
-					<td><input type="submit" value="Remove"></td>						
+					<td><input type="submit" value="Drop"></td>						
 				</tr>
 				<tr>
 					<td>COMP</td>
@@ -166,7 +141,7 @@
 					<td>9:00AM - 9:50AM</td>
 					<td>SN014</td>
 					<td>Stotts</td>
-					<td><input type="submit" value="Remove"></td>						
+					<td><input type="submit" value="Drop"></td>						
 				</tr>
 				<tr>
 					<td>COMP</td>
@@ -175,7 +150,7 @@
 					<td>9:00AM - 9:50AM</td>
 					<td>FB009</td>
 					<td>Stotts</td>
-					<td><input type="submit" value="Remove"></td>						
+					<td><input type="submit" value="Drop"></td>						
 				</tr>
 			</tbody>
 		</table>
