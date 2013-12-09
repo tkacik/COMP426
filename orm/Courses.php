@@ -20,7 +20,7 @@ class Course
 
 	      $course_info = $result->fetch_array();
 
-	    return new Address(intval($address_info['id']),
+	    return new Courses(intval($course_info['id']),
 			$course_info['dept'],
 			$course_info['course_num'],
 			$course_info['description'],
@@ -28,7 +28,6 @@ class Course
 	        $course_info['lab']);
 	    }
 	    return null;
-	  }
 	}
 
 	public static function getAllIDs() {
@@ -43,6 +42,20 @@ class Course
 	      }
 	    }
 	    return $id_array;
+	}
+
+	public static function getIDGE($id){
+		$mysqli = new mysqli("classroom.cs.unc.edu", "guok", "CH@ngemenow99Please!guok", "guokdb");
+
+	    $result = $mysqli->query("select * from Course_Gen_Ed where id = " . $id);
+	    if ($result) {
+	      if ($result->num_rows == 0) {
+		       return null;
+	      }
+
+	      $course_info = $result->fetch_array();
+	  	}
+	  	return null;
 	}
 
 	public function __construct($id, $dept, $course_num, $description, $honors, $lab){
