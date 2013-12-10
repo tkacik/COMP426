@@ -36,6 +36,7 @@ var courseSearch = function(e){
 
 	$.ajax(url_base + "/sections.php", {
 		type: "GET",
+		async: false,
 		dataType: "json",
 		data: 	"dept=" + 		dept +			"&" +
 				"equals=" + 	numSel +		"&" +
@@ -51,6 +52,7 @@ var courseSearch = function(e){
 	for(var i=0; i<searches.length; i++){
 		$.ajax(url_base + "/sections.php/" + searches[i], {
 			type: "GET",
+			async: false,
 			dataType: "json"
 			}).done(function(data, status, jqXHR) {
 				if (data.grade = "current")
