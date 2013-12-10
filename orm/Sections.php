@@ -227,7 +227,7 @@ class Sections
 			'prof' => $this->prof,
 			'location' => $this->location,
 			'time_slot' => $this->time_slot,
-			'semester' => $this->semester,
+			//'semester' => $this->semester,
 			'days' => $this->days
 			);
 		return json_encode($json_obj);
