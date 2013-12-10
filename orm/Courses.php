@@ -1,6 +1,6 @@
 <?php
 
-class Course
+class Courses
 {
 	private $id;
 	private $dept;
@@ -47,7 +47,7 @@ class Course
 	public static function getIDGE($id){
 		$mysqli = new mysqli("classroom.cs.unc.edu", "guok", "CH@ngemenow99Please!guok", "guokdb");
 
-	    $result = $mysqli->query("select * from Course_Gen_Ed where id = " . $id);
+	    $result = $mysqli->query("select abbrev from GenEd GE, Course_Gen_Ed CGE where GE.id = CGE.gened AND CGE.course = " . $id);
 	    if ($result) {
 	      if ($result->num_rows == 0) {
 		       return null;
