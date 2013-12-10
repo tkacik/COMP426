@@ -111,7 +111,7 @@ var addSection = function(e){
 
 var dropSection = function(e){
 	var sectionID = $(this).parents('tr').attr('data-section');
-	$.ajax(url_base + "/sections.php/" + userID + "/" + sectionID, 
+	$.ajax(url_base + "/grade.php/" + userID + "/" + sectionID, 
 			{type: "GET", data: "delete=true"});
 	updateMyCourses();
 };
