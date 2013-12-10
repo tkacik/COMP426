@@ -64,7 +64,7 @@ var courseSearch = function(e){
 							.append($('<td></td>').html(data.time_slot))
 							.append($('<td></td>').html(data.location))
 							.append($('<td></td>').html(data.prof))
-							.append($('<td></td>').append('<input type="submit" value="Drop">'))
+							.append($('<td></td>').append('<input type="submit" value="Add">'))
 				)});
 	}
 	 
