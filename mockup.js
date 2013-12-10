@@ -4,7 +4,7 @@ T. J. Tkacik and Kevin Guo for the
 Final Project of COMP 426-f13
 **************************************/
 
-var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f13/guok/project";
+var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f13/tkacik/project";
 var userID = 123456789;
 
 $(document).ready(function () {
