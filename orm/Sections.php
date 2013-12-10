@@ -79,9 +79,9 @@ class Sections
 		$secret == "";
 
 		if ($cnum == '' || $cnum == null){
-			$secret = $secret."";
+			$secret = $secret . "";
 		} else {
-			$secret = $secret."Course.course_num " .$op. " " .$cnum;
+			$secret = $secret . "Course.course_num " . $op . " " . $cnum;
 		}
 
 		if ($dept == '' || $dept == null){
