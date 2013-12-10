@@ -82,7 +82,7 @@ var updateMyCourses = function(){
 	$.ajax(url_base + "/sections.php", {
 		type: "GET",
 		dataType: "json",
-		data: "student=" + userID,
+		data: {student: userID},
 		success: function(data, status, jqXHR) {
 			mySections = data;
 		},
