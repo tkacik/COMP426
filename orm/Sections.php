@@ -76,7 +76,7 @@ class Sections
 			$op = ">=";
 		}
 
-		$secret == "";
+		$secret = "";
 
 		if ($cnum == '' || $cnum == null){
 			$secret = $secret . "";
