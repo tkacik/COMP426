@@ -10,7 +10,6 @@ class Sections
 	private $prof;
 	private $location;
 	private $time_slot;
-	private $semester;
 
 	public static function findByID($id){
 		$mysqli = new mysqli("classroom.cs.unc.edu", "guok", "CH@ngemenow99Please!guok", "guokdb");
@@ -30,8 +29,7 @@ class Sections
 	        $section_info['max'],
 	        $section_info['prof'],
 	        $section_info['location'],
-	        $section_info['time_slot'],
-	        $section_info['semester']);
+	        $section_info['time_slot']);
 	    }
 	    return null;
 	}
@@ -50,7 +48,7 @@ class Sections
 	    return $id_array;
 	}
 
-	public static function searchByParam($cnum, $dept, $equals, $ge, $instructor, $semester, $honors, $lab){
+	public static function searchByParam($cnum, $dept, $equals, $instructor, $honors, $lab){
 		$mysqli = new mysqli("classroom.cs.unc.edu", "guok", "CH@ngemenow99Please!guok", "guokdb");
 
 		if ($equals == -1){
@@ -61,18 +59,35 @@ class Sections
 			$op = ">=";
 		}
 
-		if ($semester[0] == "F"){
-			$term = "fall";
-		} else if ($semester[0] == "S"){
-			$term = "spring";
-		}
-		$year = substr($semester,-4);
+		$result = $mysqli->query("SELECT Section.id from Section, Course WHERE Course.course_num " .$op. " " .$cnum ." AND dept = (SELECT id FROM Department WHERE abbrev = " .$dept. ") AND Section.course = Course.id AND prof = (SELECT pid FROM Professor WHERE last = " .$instructor. " AND honors = " .$honors. " AND lab = " .$lab);
 
-		$result = $mysqli->query("select Section.id from Section WHERE Section.course " .$op. " " .$cnum ." ");
+		$id_array = array();
+
+	    if ($result) {
+	      while ($next_row = $result->fetch_array()) {
+		$id_array[] = intval($next_row['id']);
+	      }
+	    }
+	    return $id_array;
 
 	}
 
-	public function __construct($id, $dept, $Section_num, $description, $honors, $lab){
+	public static function searchByStudent($student){
+		$mysqli = new mysqli("classroom.cs.unc.edu", "guok", "CH@ngemenow99Please!guok", "guokdb");
+
+		$result = $mysqli->query("SELECT Section.id FROM Section, Grade WHERE Grade.student = " .$student);
+
+		$id_array = array();
+
+	    if ($result) {
+	      while ($next_row = $result->fetch_array()) {
+		$id_array[] = intval($next_row['id']);
+	      }
+	    }
+	    return $id_array;
+	}
+
+	public function __construct($id, $course, $sec_num, $size, $max, $prof, $location, $time_slot){
 		$this->id = $id;
 		$this->course = $course;
 		$this->sec_num = $sec_num;
@@ -81,14 +96,13 @@ class Sections
 		$this->prof = $prof;
 		$this->location = $location;
 		$this->time_slot = $time_slot;
-		$this->semester = $semester;
 	}
 
 	public function getID(){
 		return $this->id;
 	}
 
-	public function getCourse(){}
+	public function getCourse(){
 		return $this->course;
 	}
 

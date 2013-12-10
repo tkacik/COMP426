@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     $section_id = intval($path_components[1]);
 
     // Look up object via ORM
-    $section = Sections::findByID($course_id);
+    $section = Sections::findByID($section_id);
 
     if ($section == null) {
       // section not found.
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
       $student = trim($_REQUEST['student']);
       $section = Sections::searchByStudent($student);
       header("Content-type: application/json");
-      print(json_encode($section);
+      print(json_encode($section));
       exit();
     }
 
@@ -65,11 +65,6 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
       $cnum = trim($_REQUEST['cnum']);
     }
 
-    $semester = false;
-    if (isset($_REQUEST['semester'])) {
-      $semester = trim($_REQUEST['semester']);
-    }
-
     $dept = false;
     if (isset($_REQUEST['dept'])) {
       $dept = trim($_REQUEST['dept']);
@@ -78,11 +73,6 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     $equals = false;
     if (isset($_REQUEST['equals'])) {
       $equals = trim($_REQUEST['equals']);
-    }
-
-    $ge = false;
-    if (isset($_REQUEST['ge'])) {
-      $ge = trim($_REQUEST['ge']);
     }
 
     $instructor = false;
@@ -100,10 +90,10 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
       $lab = trim($_REQUEST['lab']);
     }
 
-    $section = Sections::searchByParam($cnum, $dept, $equals, $ge, $instructor, $semester, $honors, $lab);
+    $section = Sections::searchByParam($cnum, $dept, $equals, $instructor, $honors, $lab);
 
     header("Content-type: application/json");
-    print(json_encode($section);
+    print(json_encode($section));
   exit();
   }
 
