@@ -79,34 +79,22 @@ var updateMyCourses = function(){
 	var historyList = $('#courseHistory table.courseList tbody').empty();
 	var mySections = {};
 
-	var ajax = $.ajax(url_base + "/sections.php", {
+	$.ajax(url_base + "/sections.php", {
 		type: "GET",
 		dataType: "json",
 		data: {student: userID},
 		async: false,
-		success: function(data, status, jqXHR) {
-			mySections = data;
-		},
 		error: function(jqXHR, status, error) {
 				alert("ERROR");
-	}});
+	}}).done(function(data, status, jqXHR) {
+			mySections = data;
+		});
 	alert(ajax.responseText)
 	for(var i=0; i<mySections.length; i++){
 		$.ajax(url_base + "/sections.php/" + mySections[i], {
 			type: "GET",
 			dataType: "json",
 			async: false,
-			success: function(data, status, jqXHR) {
-				myCourseList.append(
-						$('<tr></tr>').attr('data-section', mySections[i])
-							.append($('<td></td>').html(data.dept))
-							.append($('<td></td>').html(data.cnum))
-							.append($('<td></td>').html(data.days))
-							.append($('<td></td>').html(data.time_slot))
-							.append($('<td></td>').html(data.location))
-							.append($('<td></td>').html(data.prof))
-							.append($('<td></td>').append('<input type="submit" value="Drop">'))
-				);
 				/*else 
 					historyList.append(
 							$('<tr></tr>').attr('data-section',courseHistory[i])
@@ -117,10 +105,20 @@ var updateMyCourses = function(){
 								.append($('<td></td>').html(data.time_slot))
 								.append($('<td></td>').html(data.prof))
 					);*/
-		},
-		error: function(jqXHR, status, error) {
-			alert("ERROR");
-		}});
+			},
+			error: function(jqXHR, status, error) {
+				alert("ERROR");
+		}}).done(function(data, status, jqXHR) {
+				myCourseList.append(
+						$('<tr></tr>').attr('data-section', mySections[i])
+							.append($('<td></td>').html(data.dept))
+							.append($('<td></td>').html(data.cnum))
+							.append($('<td></td>').html(data.days))
+							.append($('<td></td>').html(data.time_slot))
+							.append($('<td></td>').html(data.location))
+							.append($('<td></td>').html(data.prof))
+							.append($('<td></td>').append('<input type="submit" value="Drop">'))
+				));
 	}
 };
 
