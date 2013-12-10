@@ -61,6 +61,14 @@ class Grade
 	    return $this->update();
   	}
 
+  	private function update() {
+    $mysqli = new mysqli("classroom.cs.unc.edu", "guok", "CH@ngemenow99Please!guok", "guokdb");
+
+    $result = $mysqli->query("UPDATE Grade SET grade = '" .$this->grade. "', section = " .$this->section. ", student = " .$this->student. " WHERE section = " .$this->section. " AND student = " .$this->student);
+
+    return $result;
+  }
+
 	public function getJSON() {
 		$json_obj = array('grade' => $this->grade,
 			'section' => $this->section,
