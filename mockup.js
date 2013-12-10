@@ -88,7 +88,7 @@ var updateMyCourses = function(){
 			dataType: "json"
 			}).done(function(data, status, jqXHR) {
 				myCourseList.append(
-						$('<tr class=row></tr>').attr('data-section', mySections[i])
+						$('<tr></tr>').attr('data-section', mySections[i])
 							.append($('<td></td>').html(data.dept))
 							.append($('<td></td>').html(data.cnum))
 							.append($('<td></td>').html(data.days))
@@ -112,7 +112,7 @@ historyList.append(
 );*/
 
 var addSection = function(e){
-	var sectionID = $(this).parents('.row');
+	var sectionID = $(this).parents('tr');
 	alert(e);
 	alert(sectionID);
 	alert(sectionID.attr('data-section'));
