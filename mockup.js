@@ -114,10 +114,10 @@ historyList.append(
 );*/
 
 var addSection = function(e){
-	/*var sectionID = $(e).parent('tr').attr('data-section');
+	var sectionID = $(e).parent('tr').attr('data-section');
 	var url = url_base + "/sections.php/" + userID + "/" sectionID;
 	$.ajax(url, {type: "POST", data: "enroll=true"});
-	*/updateMyCourses();
+	updateMyCourses();
 };
 
 var dropSection = function(e){
