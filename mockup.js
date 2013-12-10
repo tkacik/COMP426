@@ -13,6 +13,8 @@ $(document).ready(function () {
 	$('#courseSearch .courseList').on('click', 'input', null, addSection);
 	
 	$('#myCourses .courseList').on('click', 'input', null, dropSection);
+	
+	$('#switchUsers').on('click', switchUser);
 
 	switchUser();
 	//updateMyCourses();
@@ -20,6 +22,7 @@ $(document).ready(function () {
 });
 
 var switchUser = function(e){
+	e.preventDefault();
 	userID = prompt("Enter your User ID:");
 	updateMyCourses();
 };
