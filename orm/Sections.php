@@ -104,7 +104,7 @@ class Sections
 			}
 		}
 
-		if ($honors == '' || $honors == null){
+		if ($honors == '' || $honors == null || $honors == 1){
 			$secret = $secret."";
 		} else {
 			if ($secret != ""){
