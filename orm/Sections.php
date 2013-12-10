@@ -104,7 +104,7 @@ class Sections
 			}
 		}
 
-		if ($honors == '' || $honors == null || $honors == 1){
+		if ($honors == '' || $honors == null || $honors == 0){
 			$secret = $secret."";
 		} else {
 			if ($secret != ""){
@@ -114,7 +114,7 @@ class Sections
 			}
 		}
 
-		if ($lab == '' || $lab == null){
+		if ($lab == '' || $lab == null || $lab == 0){
 			$secret = $secret."";
 		} else {
 			if ($secret != ""){
