@@ -244,7 +244,7 @@ div.toolBody {
 }
 
 .toolBody tbody {
-	max-height: 450px;
+	max-height: 300px;
 }
 
 .searchBar > div > * {
