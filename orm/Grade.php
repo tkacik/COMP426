@@ -8,8 +8,8 @@ class Grade
 
 	public static function create($grade, $section_id, $student_id) {
     $mysqli = new mysqli("classroom.cs.unc.edu", "guok", "CH@ngemenow99Please!guok", "guokdb");
-	$result = false;
-    if($mysql->query("select * from Grade WHERE section = " . $this->section . " AND student = " . $this->student))
+	//$result = false;
+    //if($mysql->query("select * from Grade WHERE section = " . $this->section . " AND student = " . $this->student))
     $result = $mysqli->query("insert into Grade values ('".$grade."', ".$section_id.", ".$student_id.")");
     
     if ($result) {
