@@ -22,7 +22,6 @@ $(document).ready(function () {
 });
 
 var switchUser = function(e){
-	e.preventDefault();
 	userID = prompt("Enter your User ID:");
 	updateMyCourses();
 };
