@@ -52,6 +52,7 @@ var courseSearch = function(e){
 	for(var i=0; i<searches.length; i++){
 		$.ajax(url_base + "/sections.php/" + searches[i], {
 			type: "GET",
+			async: false,
 			dataType: "json"
 			}).done(function(data, status, jqXHR) {
 				if (data.grade = "current")
@@ -88,8 +89,6 @@ var updateMyCourses = function(){
 			async: false,
 			dataType: "json"
 			}).done(function(data, status, jqXHR) {
-				alert(i);
-				alert(mySections[i]);
 				myCourseList.append(
 						$('<tr></tr>').attr('data-section', mySections[i])
 							.append($('<td></td>').html(data.dept))
