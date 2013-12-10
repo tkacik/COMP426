@@ -83,20 +83,16 @@ var updateMyCourses = function(){
 		type: "GET",
 		dataType: "json",
 		data: {student: userID},
-		async: false,
-		error: function(jqXHR, status, error) {
-				alert("ERROR");
-	}}).done(function(data, status, jqXHR) {
+		async: false
+		}).done(function(data, status, jqXHR) {
 			mySections = data;
 		});
 	for(var i=0; i<mySections.length; i++){
 		$.ajax(url_base + "/sections.php/" + mySections[i], {
 			type: "GET",
 			dataType: "json",
-			async: false,	
-			error: function(jqXHR, status, error) {
-				alert("ERROR");
-		}}).done(function(data, status, jqXHR) {
+			async: false
+			}).done(function(data, status, jqXHR) {
 				myCourseList.append(
 						$('<tr></tr>').attr('data-section', mySections[i])
 							.append($('<td></td>').html(data.dept))
