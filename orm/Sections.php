@@ -4,6 +4,8 @@ class Sections
 {
 	private $id;
 	private $course;
+	private $dept;
+	private $cnum;
 	private $sec_num;
 	private $size;
 	private $max;
@@ -14,22 +16,37 @@ class Sections
 	public static function findByID($id){
 		$mysqli = new mysqli("classroom.cs.unc.edu", "guok", "CH@ngemenow99Please!guok", "guokdb");
 
-		$result = $mysqli->query("select * from Section where id = " . $id);
+		$result = $mysqli->query("select Section.*, Building.abbrev, Course.course_num, TimeSlot.* from Section, Course, Department, Building, TimeSlot where Course.id = Section.course AND Department.id = Course.dept AND TimeSlot.id = Section.time_slot AND Section.location = Building.id AND Section.id = " . $id);
 	    if ($result) {
 	      if ($result->num_rows == 0) {
 		       return null;
 	      }
 
-	      $section_info = $result->fetch_array();
-
+	    $section_info = $result->fetch_array();
+	      
+	    $days = "";
+	    if ($section_info['m']) $days = $days . 'M';
+	    if ($section_info['t']) $days = $days . 'T';
+	    if ($section_info['w']) $days = $days . 'W';
+	    if ($section_info['r']) $days = $days . 'R';
+	    if ($section_info['f']) $days = $days . 'F';
+	    if ($section_info['s']) $days = $days . 'S';
+	    if ($section_info['n']) $days = $days . 'N';
+	    
+	    array_push($section_info,"days"=>$days);
+	    $section_info['time_slot'] = substr($section_info['start_time'], 0, 5) . '-' . substr($section_info['end_time'], 0, 5); 
+	    
 	    return new Sections(intval($section_info['id']),
 			$section_info['course'],
+    		$section_info['abbrev'],
+	    	$section_info['course_num'],
 			$section_info['sec_num'],
 			$section_info['size'],
 	        $section_info['max'],
 	        $section_info['prof'],
-	        $section_info['location'],
-	        $section_info['time_slot']);
+	        $section_info['name'],
+	        $section_info['time_slot'],
+	    	$section_info['days']);
 	    }
 	    return null;
 	}
@@ -87,15 +104,18 @@ class Sections
 	    return $id_array;
 	}
 
-	public function __construct($id, $course, $sec_num, $size, $max, $prof, $location, $time_slot){
+	public function __construct($id, $course, $dept, $cnum, $sec_num, $size, $max, $prof, $location, $time_slot, $days){
 		$this->id = $id;
 		$this->course = $course;
+		$this->dept = $dept;
+		$this->cnum = $cnum;
 		$this->sec_num = $sec_num;
 		$this->size = $size;
 		$this->max = $max;
 		$this->prof = $prof;
 		$this->location = $location;
 		$this->time_slot = $time_slot;
+		$this->days = $days;
 	}
 
 	public function getID(){
@@ -133,17 +153,32 @@ class Sections
 	public function getSemester(){
 		return $this->semester;
 	}
+	
+	public function getDept(){
+		return $this->dept;
+	}
+	
+	public function getCnum(){
+		return $this->cnum;
+	}
+	
+	public function getDays(){
+		return $this->days;
+	}
 
 	public function getJSON() {
 		$json_obj = array('id' => $this->id,
 			'course' => $this->course,
+			'dept' => $this->dept,
+			'cnum' => $this->cnum,
 			'sec_num' => $this->sec_num,
 			'size' => $this->size,
 			'max' => $this->max,
 			'prof' => $this->prof,
 			'location' => $this->location,
 			'time_slot' => $this->time_slot,
-			'semester' => $this->semester
+			'semester' => $this->semester,
+			'days' => $this->days
 			);
 		return json_encode($json_obj);
 	}
