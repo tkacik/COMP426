@@ -16,7 +16,7 @@ class Sections
 	public static function findByID($id){
 		$mysqli = new mysqli("classroom.cs.unc.edu", "guok", "CH@ngemenow99Please!guok", "guokdb");
 
-		$result = $mysqli->query("select Section.*, Department.abbrev, Building.name, Professor.last, Course.course_num, TimeSlot.* from Section, Course, Professor, Department, Building, TimeSlot where Course.id = Section.course AND Department.id = Course.dept AND TimeSlot.id = Section.time_slot AND Section.location = Building.id AND Section.prof = Professor.pid AND Section.id = " . $id);
+		$result = $mysqli->query("select Section.*, Department.abbrev, Building.name, Professor.last, Course.course_num, TimeSlot.* from Section, Course, Professor, Department, Building, TimeSlot where Course.id = Section.course AND Department.id = Course.dept AND TimeSlot.id = Section.time_slot AND Section.location = Building.id AND Section.prof = Professor.pid AND Section.id = " . $id . " LIMIT 1");
 	    if ($result) {
 	      if ($result->num_rows == 0) {
 		       return null;
