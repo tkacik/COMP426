@@ -71,7 +71,8 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 
     // Return JSON encoding of updated address
     header("Content-type: application/json");
-    print($new_grade->getJSON());
+    if($new_grade != null)
+	    print($new_grade->getJSON());
     exit();
   }
 }
