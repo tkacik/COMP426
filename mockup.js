@@ -4,14 +4,8 @@ T. J. Tkacik and Kevin Guo for the
 Final Project of COMP 426-f13
 **************************************/
 
-var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f13/kmp/lec23/server-side";
-var userID = 0;
-
-//Array of IDs of sections returned by search
-var searches = [0, 1, 2, 3, 4, 5];
-//Array of IDs of sections
-var mySections = [0, 1, 2];
-
+var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f13/guok/project";
+var userID = 123456789;
 
 $(document).ready(function () {
 	$('#courseSearch .searchBar').on('submit', courseSearch);
@@ -20,7 +14,7 @@ $(document).ready(function () {
 	
 	$('#myCourses .courseList').on('click', 'input', null, dropSection);
 
-	updatePage();
+	updateMyCourses();
 	
 });
 
@@ -34,28 +28,35 @@ var courseSearch = function(e){
 			case '<': numSel = -1;
 		}
 	var cnum = $('input.cnum').val();
-	var ge = $('select[name="ge"]').val();
 	var instructor = $('input.instructor').val();
-	var semester = $('select[name="semester"]').val();
 	var honors = $('input.honors').is(':checked') ? 1 : 0;
 	var lab = $('input.lab').is(':checked') ? 1 : 0;
 	
-	alert(dept+numSel+cnum+ge+instructor+semester+honors+lab);
+	var searches = {};
+
+	$.ajax(url_base + "/sections.php", {
+		type: "GET",
+		dataType: "json",
+		data: 	"dept=" + 		dept +			"&" +
+				"equals=" + 	numSel +		"&" +
+				"cnum=" +		cnum +			"&" +
+				"prof=" + 		instructor + 	"&" +
+				"honors=" + 	honors + 		"&" +
+				"lab=" + 		lab,
+		success: function(data, status, jqXHR) {
+			searches = data;
+		},
+		error: function(jqXHR, status, error) {
+			alert(status);
+		}
+	});
 	
 	var resultsList = $('#courseSearch table.courseList tbody').empty();
-	//TODO get search results and put into searches
 	for(var i=0; i<searches.length; i++){
-		$.ajax(url_base + "/sections.php/" + searches[i], {
+		var url = url_base + "/sections.php/" + searches[i];
+		$.ajax(url, {
 			type: "GET",
 			dataType: "json",
-			data: 	"{dept: " + 	dept +			"," +
-					"equals: " + 	numSel +		"," +
-					"cnum: " +		cnum +			"," +
-					"ge: " + 		ge + 			"," +
-					"prof: " + 		instructor + 	"," +
-					"semester: " + 	semester +		"," +
-					"honors: " + 	honors + 		"," +
-					"lab: " + 		lab +			"}",
 			success: function(data, status, jqXHR) {
 				if (data.grade = "current")
 				resultsList.append(
@@ -75,26 +76,15 @@ var courseSearch = function(e){
 	 
 };
 
-var addSection = function(e){
-	alert("TODO");
-};
-
-var dropSection = function(e){
-	alert("TODO");
-};
-
-var updatePage = function(e){
-	updateMyCourses();
-	//updateGERequirements();
-};
-
 var updateMyCourses = function(){
 	var myCourseList = $('#myCourses table.courseList tbody').empty();
 	var historyList = $('#courseHistory table.courseList tbody').empty();
+	var mySections = {};
+
 	$.ajax(url_base + "/sections.php", {
 		type: "GET",
 		dataType: "json",
-		data: "{student: " + userID +"}",
+		data: "student=" + userID,
 		success: function(data, status, jqXHR) {
 			mySections = data;
 	}});
@@ -117,18 +107,30 @@ var updateMyCourses = function(){
 				else 
 					historyList.append(
 							$('<tr></tr>').attr('data-section',courseHistory[i])
-								.append($('<td></td>').html(data.semester))
 								.append($('<td></td>').html(data.dept))
 								.append($('<td></td>').html(data.cnum))
 								.append($('<td></td>').html(data.grade))
 								.append($('<td></td>').html(data.days))
-								.append($('<td></td>').html(data.semester))
+								.append($('<td></td>').html(data.time_slot))
 								.append($('<td></td>').html(data.prof))
 					);
-			}});
+		}});
 	}
 };
 
-var updateGERequirements = function(){
-	
+
+var addSection = function(e){
+	/*var sectionID = $(e).parent('tr').attr('data-section');
+	var url = url_base + "/sections.php/" + userID + "/" sectionID;
+	$.ajax(url, {type: "POST", data: "enroll=true"});
+	*/updateMyCourses();
 };
+
+var dropSection = function(e){
+	/*var sectionID = $(e).parent('tr').attr('data-section');
+	var url = url_base + "/sections.php/" + userID + "/" sectionID;
+	$.ajax(url, {type: "GET", data: "delete=true"});
+	*/
+	updateMyCourses();
+};
+
