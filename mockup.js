@@ -87,6 +87,7 @@ var updateMyCourses = function(){
 			type: "GET",
 			dataType: "json"
 			}).done(function(data, status, jqXHR) {
+				alert(i);
 				alert(mySections[i]);
 				myCourseList.append(
 						$('<tr></tr>').attr('data-section', mySections[i])
