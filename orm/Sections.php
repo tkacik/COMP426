@@ -75,7 +75,7 @@ class Sections
 	public static function searchByStudent($student){
 		$mysqli = new mysqli("classroom.cs.unc.edu", "guok", "CH@ngemenow99Please!guok", "guokdb");
 
-		$result = $mysqli->query("SELECT Section.id FROM Section, Grade WHERE Grade.student = " .$student);
+		$result = $mysqli->query("SELECT Section.id FROM Section, Grade WHERE Section.id = Grade.section AND Grade.student = " .$student);
 
 		$id_array = array();
 
