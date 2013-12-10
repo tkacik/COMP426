@@ -113,9 +113,10 @@ historyList.append(
 
 var addSection = function(e){
 	var sectionID = $(e).parents('tr').attr('data-section');
-	var url = url_base + "/grade.php/" + userID + "/" + sectionID;
+	alert(sectionID);
+	/*var url = url_base + "/grade.php/" + userID + "/" + sectionID;
 	$.ajax(url, {type: "POST", data: "enroll=true"});
-	updateMyCourses();
+	updateMyCourses();*/
 };
 
 var dropSection = function(e){
