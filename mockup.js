@@ -87,6 +87,9 @@ var updateMyCourses = function(){
 		data: "student=" + userID,
 		success: function(data, status, jqXHR) {
 			mySections = data;
+		},
+		error: function(jqXHR, status, error) {
+				alert(status);
 	}});
 	for(var i=0; i<mySections.length; i++){
 		$.ajax(url_base + "/sections.php/" + mySections[i], {
