@@ -83,6 +83,7 @@ var updateMyCourses = function(){
 		type: "GET",
 		dataType: "json",
 		data: {student: userID},
+		async: false,
 		success: function(data, status, jqXHR) {
 			mySections = data;
 		},
@@ -93,6 +94,7 @@ var updateMyCourses = function(){
 		$.ajax(url_base + "/sections.php/" + mySections[i], {
 			type: "GET",
 			dataType: "json",
+			async: false,
 			success: function(data, status, jqXHR) {
 				myCourseList.append(
 						$('<tr></tr>').attr('data-section', mySections[i])
