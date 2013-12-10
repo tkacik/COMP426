@@ -36,8 +36,8 @@ class Sections
 	    
 	    $section_info['time_slot'] = substr($section_info['start_time'], 0, 5) . '-' . substr($section_info['end_time'], 0, 5); 
 	    
-	    if($section_info['lab']) $section_info['cnum'] = $section_info['cnum'] . 'L';
-	    if($section_info['honors']) $section_info['cnum'] = $section_info['cnum'] . 'H';
+	    if($section_info['lab']) $section_info['course_num'] = $section_info['course_num'] . 'L';
+	    if($section_info['honors']) $section_info['course_num'] = $section_info['course_num'] . 'H';
 	     
 	    return new Sections(intval($section_info['id']),
 			$section_info['course'],
