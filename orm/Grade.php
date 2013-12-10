@@ -2,14 +2,14 @@
 
 class Grade
 {
-	private $grade
-	private $section
-	private $student
+	private $grade;
+	private $section;
+	private $student;
 
-	public static function findByID($id){
+	public static function findByID($studentid, $sectionid){
 		$mysqli = new mysqli("classroom.cs.unc.edu", "guok", "CH@ngemenow99Please!guok", "guokdb");
 
-		$result = $mysqli->query("select * from Grade where id = " . $id);
+		$result = $mysqli->query("select * from Grade where student = " . $studentid . " AND section = " . $sectionid);
 	    if ($result) {
 	      if ($result->num_rows == 0) {
 		       return null;
@@ -24,19 +24,19 @@ class Grade
 	    return null;
 	}
 
-/*	public static function getAllIDs() {
+	public static function getAllIDs() {
 	    $mysqli = new mysqli("classroom.cs.unc.edu", "guok", "CH@ngemenow99Please!guok", "guokdb");
 
-	    $result = $mysqli->query("select id from Section");
+	    $result = $mysqli->query("select grade from Grade");
 	    $id_array = array();
 
 	    if ($result) {
 	      while ($next_row = $result->fetch_array()) {
-		$id_array[] = intval($next_row['id']);
+		$id_array[] = intval($next_row['grade']);
 	      }
 	    }
 	    return $id_array;
-	}*/
+	}
 
 	public function __construct($grade, $section, $student){
 		$this->grade = $grade;
@@ -48,7 +48,7 @@ class Grade
 		return $this->grade;
 	}
 
-	public function getSection(){}
+	public function getSection(){
 		return $this->section;
 	}
 
