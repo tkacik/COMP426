@@ -32,7 +32,7 @@ var courseSearch = function(e){
 	var honors = $('input.honors').is(':checked') ? 1 : 0;
 	var lab = $('input.lab').is(':checked') ? 1 : 0;
 	
-	var searches = {};
+	var searches;
 
 	$.ajax(url_base + "/sections.php", {
 		type: "GET",
@@ -52,8 +52,7 @@ var courseSearch = function(e){
 	
 	var resultsList = $('#courseSearch table.courseList tbody').empty();
 	for(var i=0; i<searches.length; i++){
-		var url = url_base + "/sections.php/" + searches[i];
-		$.ajax(url, {
+		$.ajax(url_base + "/sections.php/" + searches[i], {
 			type: "GET",
 			dataType: "json",
 			success: function(data, status, jqXHR) {
