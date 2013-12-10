@@ -52,7 +52,6 @@ var courseSearch = function(e){
 	for(var i=0; i<searches.length; i++){
 		$.ajax(url_base + "/sections.php/" + searches[i], {
 			type: "GET",
-			async: false,
 			dataType: "json"
 			}).done(function(data, status, jqXHR) {
 				if (data.grade = "current")
@@ -86,8 +85,7 @@ var updateMyCourses = function(){
 	for(var i=0; i<mySections.length; i++){
 		$.ajax(url_base + "/sections.php/" + mySections[i], {
 			type: "GET",
-			dataType: "json",
-			async: false
+			dataType: "json"
 			}).done(function(data, status, jqXHR) {
 				myCourseList.append(
 						$('<tr></tr>').attr('data-section', mySections[i])
