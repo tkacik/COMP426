@@ -1,6 +1,6 @@
 <?php
 
-class Section
+class Sections
 {
 	private $id;
 	private $course;
@@ -48,6 +48,28 @@ class Section
 	      }
 	    }
 	    return $id_array;
+	}
+
+	public static function searchByParam($cnum, $dept, $equals, $ge, $instructor, $semester, $honors, $lab){
+		$mysqli = new mysqli("classroom.cs.unc.edu", "guok", "CH@ngemenow99Please!guok", "guokdb");
+
+		if ($equals == -1){
+			$op = "<=";
+		} else if ($equals == 0){
+			$op = "=";
+		} else if ($equals == 1){
+			$op = ">=";
+		}
+
+		if ($semester[0] == "F"){
+			$term = "fall";
+		} else if ($semester[0] == "S"){
+			$term = "spring";
+		}
+		$year = substr($semester,-4);
+
+		$result = $mysqli->query("select Section.id from Section WHERE Section.course " .$op. " " .$cnum ." ");
+
 	}
 
 	public function __construct($id, $dept, $Section_num, $description, $honors, $lab){

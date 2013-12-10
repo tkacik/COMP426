@@ -1,6 +1,6 @@
 <?php
 
-class Section
+class Grade
 {
 	private $grade
 	private $section

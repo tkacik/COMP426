@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 
     // Check to see if deleting
     if (isset($_REQUEST['delete'])) {
-      $address->delete();
+      $section->delete();
       header("Content-type: application/json");
       print(json_encode(true));
       exit();
@@ -43,12 +43,71 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     print($section->getJSON());
     exit();
 
+  } else {
+    // ID not specified, then must be asking for index of params
+
+    $student = false;
+    if (isset($_REQUEST['student'])) {
+      $student = trim($_REQUEST['student']);
+      $section = Sections::searchByStudent($student);
+      header("Content-type: application/json");
+      print(json_encode($section);
+      exit();
+    }
+
+    $course = false;
+    if (isset($_REQUEST['course'])) {
+      $course = trim($_REQUEST['course']);
+    }
+
+    $cnum = false;
+    if (isset($_REQUEST['cnum'])) {
+      $cnum = trim($_REQUEST['cnum']);
+    }
+
+    $semester = false;
+    if (isset($_REQUEST['semester'])) {
+      $semester = trim($_REQUEST['semester']);
+    }
+
+    $dept = false;
+    if (isset($_REQUEST['dept'])) {
+      $dept = trim($_REQUEST['dept']);
+    }
+
+    $equals = false;
+    if (isset($_REQUEST['equals'])) {
+      $equals = trim($_REQUEST['equals']);
+    }
+
+    $ge = false;
+    if (isset($_REQUEST['ge'])) {
+      $ge = trim($_REQUEST['ge']);
+    }
+
+    $instructor = false;
+    if (isset($_REQUEST['instructor'])) {
+      $instructor = trim($_REQUEST['instructor']);
+    }
+
+    $honors = false;
+    if (isset($_REQUEST['honors'])) {
+      $honors = trim($_REQUEST['honors']);
+    }
+
+    $lab = false;
+    if (isset($_REQUEST['lab'])) {
+      $lab = trim($_REQUEST['lab']);
+    }
+
+    $section = Sections::searchByParam($cnum, $dept, $equals, $ge, $instructor, $semester, $honors, $lab);
+
+    header("Content-type: application/json");
+    print(json_encode($section);
+  exit();
   }
 
-  // ID not specified, then must be asking for index
-  header("Content-type: application/json");
-  print(json_encode(Sections::getAllIDs()));
-  exit();
+
 }
 
 // If here, none of the above applied and URL could
