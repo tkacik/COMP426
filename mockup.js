@@ -47,7 +47,7 @@ var courseSearch = function(e){
 			searches = data;
 		},
 		error: function(jqXHR, status, error) {
-			alert(status);
+			alert("ERROR");
 		}});
 	
 	var resultsList = $('#courseSearch table.courseList tbody').empty();
@@ -69,7 +69,7 @@ var courseSearch = function(e){
 							.append($('<td></td>').append('<input type="submit" value="Drop">'))
 				)},
 				error: function(jqXHR, status, error) {
-					alert(status);
+					alert("ERROR");
 				}});
 	}
 	 
@@ -88,25 +88,24 @@ var updateMyCourses = function(){
 			mySections = data;
 		},
 		error: function(jqXHR, status, error) {
-				alert(status);
+				alert("ERROR");
 	}});
 	for(var i=0; i<mySections.length; i++){
 		$.ajax(url_base + "/sections.php/" + mySections[i], {
 			type: "GET",
 			dataType: "json",
 			success: function(data, status, jqXHR) {
-				if (data.grade = "current")
-					myCourseList.append(
-							$('<tr></tr>').attr('data-section', mySections[i])
-								.append($('<td></td>').html(data.dept))
-								.append($('<td></td>').html(data.cnum))
-								.append($('<td></td>').html(data.days))
-								.append($('<td></td>').html(data.time_slot))
-								.append($('<td></td>').html(data.location))
-								.append($('<td></td>').html(data.prof))
-								.append($('<td></td>').append('<input type="submit" value="Drop">'))
-					);
-				else 
+				myCourseList.append(
+						$('<tr></tr>').attr('data-section', mySections[i])
+							.append($('<td></td>').html(data.dept))
+							.append($('<td></td>').html(data.cnum))
+							.append($('<td></td>').html(data.days))
+							.append($('<td></td>').html(data.time_slot))
+							.append($('<td></td>').html(data.location))
+							.append($('<td></td>').html(data.prof))
+							.append($('<td></td>').append('<input type="submit" value="Drop">'))
+				);
+				/*else 
 					historyList.append(
 							$('<tr></tr>').attr('data-section',courseHistory[i])
 								.append($('<td></td>').html(data.dept))
@@ -115,10 +114,10 @@ var updateMyCourses = function(){
 								.append($('<td></td>').html(data.days))
 								.append($('<td></td>').html(data.time_slot))
 								.append($('<td></td>').html(data.prof))
-					);
+					);*/
 		},
 		error: function(jqXHR, status, error) {
-			alert(status);
+			alert("ERROR");
 		}});
 	}
 };
