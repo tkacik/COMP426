@@ -33,7 +33,7 @@ class Sections
 	    if ($section_info['s']) $days = $days . 'S';
 	    if ($section_info['n']) $days = $days . 'N';
 	    
-	    array_push($section_info,"days"=>$days);
+	    $section_info['days'] = $days;
 	    $section_info['time_slot'] = substr($section_info['start_time'], 0, 5) . '-' . substr($section_info['end_time'], 0, 5); 
 	    
 	    return new Sections(intval($section_info['id']),
