@@ -19,7 +19,7 @@ $(document).ready(function () {
 	
 });
 
-var switchUser(){
+var switchUser = function(e){
 	userID = prompt("Enter your User ID:");
 	updateMyCourses();
 };
