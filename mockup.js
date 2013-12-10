@@ -20,9 +20,9 @@ $(document).ready(function () {
 });
 
 var switchUser(){
-	userID = prompt(Enter your User ID:);
+	userID = prompt("Enter your User ID:");
 	updateMyCourses();
-}
+};
 
 var courseSearch = function(e){
 	e.preventDefault();
