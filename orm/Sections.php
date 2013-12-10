@@ -32,10 +32,13 @@ class Sections
 	    if ($section_info['f']) $days = $days . 'F';
 	    if ($section_info['s']) $days = $days . 'S';
 	    if ($section_info['n']) $days = $days . 'N';
-	    
 	    $section_info['days'] = $days;
+	    
 	    $section_info['time_slot'] = substr($section_info['start_time'], 0, 5) . '-' . substr($section_info['end_time'], 0, 5); 
 	    
+	    if($section_info['lab']) $section_info['cnum'] += 'L';
+	    if($section_info['honors']) $section_info['cnum'] += 'H';
+	     
 	    return new Sections(intval($section_info['id']),
 			$section_info['course'],
     		$section_info['abbrev'],
