@@ -85,6 +85,7 @@ var updateMyCourses = function(){
 	for(var i=0; i<mySections.length; i++){
 		$.ajax(url_base + "/sections.php/" + mySections[i], {
 			type: "GET",
+			async: false,
 			dataType: "json"
 			}).done(function(data, status, jqXHR) {
 				alert(i);
