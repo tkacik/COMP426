@@ -56,7 +56,7 @@ var courseSearch = function(e){
 			}).done(function(data, status, jqXHR) {
 				if (data.grade = "current")
 				resultsList.append(
-						$('<tr data-section='+mySection[i]+'></tr>')
+						$('<tr></tr>').attr('data-section', searches[i])
 							.append($('<td></td>').html(data.dept))
 							.append($('<td></td>').html(data.cnum))
 							.append($('<td></td>').html(data.days))
@@ -87,8 +87,9 @@ var updateMyCourses = function(){
 			type: "GET",
 			dataType: "json"
 			}).done(function(data, status, jqXHR) {
+				alert(mySections[i]);
 				myCourseList.append(
-						$('<tr data-section='+mySection[i]+'></tr>')
+						$('<tr></tr>').attr('data-section', mySections[i])
 							.append($('<td></td>').html(data.dept))
 							.append($('<td></td>').html(data.cnum))
 							.append($('<td></td>').html(data.days))
