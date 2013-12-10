@@ -35,34 +35,7 @@
 					<option value=">">&gt;</option>
 				</select>
 				<input type="number" name="cNum" class="cnum" value="000">
-				<select name="ge">
-					<option value="none">GE</option>
-					<option value="BN">BN</option>
-					<option value="CI">CI</option>
-					<option value="EE">EE</option>
-					<option value="EN">EN</option>				
-					<option value="FL">FL</option>
-					<option value="GL">GL</option>
-					<option value="HS">HS</option>
-					<option value="LA">LA</option>
-					<option value="LF">LF</option>
-					<option value="NA">NA</option>
-					<option value="PH">PH</option>
-					<option value="PL">PL</option>
-					<option value="PX">PX</option>
-					<option value="QI">QI</option>
-					<option value="QR">QR</option>
-					<option value="SS">SS</option>
-					<option value="US">US</option>
-					<option value="VP">VP</option>
-					<option value="WB">WB</option>
-				</select>
 				<input type="text" value="Instructor" class="instructor">
-				<select name="semester">
-					<option value="F2013">F2013</option>
-					<option value="S2013">S2013</option>
-					<option value="F2012">F2012</option>
-				</select>
 				<label><input type="checkbox" class="honors">Honors</label>				
 				<label><input type="checkbox" class="lab">Lab</label>				
 			</div>
@@ -78,34 +51,6 @@
 				<col class="icon">
 			</colgroup>
 			<tbody>
-				<tr>
-					<td>COMP</td>
-					<td>116</td>
-					<td>MWF</td>
-					<td>9:00AM - 9:50AM</td>
-					<td>SN011</td>
-					<td>Mayer-Patel</td>
-					<td><input type="submit" value="Add"></td>
-					
-				</tr>
-				<tr>
-					<td>COMP</td>
-					<td>401</td>
-					<td>TR</td>
-					<td>8:00AM - 9:15AM</td>
-					<td>SN011</td>
-					<td>Pozefsky</td>
-					<td><input type="submit" value="Add"></td>
-				</tr>
-				<tr>
-					<td>COMP</td>
-					<td>410</td>
-					<td>MW</td>
-					<td>9:30AM - 10:45AM</td>
-					<td>SN011</td>
-					<td>Jeffay</td>
-					<td><input type="submit" value="Add"></td>
-				</tr>
 			</tbody>
 		</table>
 	</div>
@@ -125,38 +70,11 @@
 				<col class="icon">
 			</colgroup>
 			<tbody>
-				<tr data-section="1">
-					<td>COMP</td>
-					<td>116</td>
-					<td>MWF</td>
-					<td>9:00AM - 9:50AM</td>
-					<td>SN011</td>
-					<td>Stotts</td>
-					<td><input type="submit" value="Drop"></td>						
-				</tr>
-				<tr>
-					<td>COMP</td>
-					<td>116</td>
-					<td>MWF</td>
-					<td>9:00AM - 9:50AM</td>
-					<td>SN014</td>
-					<td>Stotts</td>
-					<td><input type="submit" value="Drop"></td>						
-				</tr>
-				<tr>
-					<td>COMP</td>
-					<td>116</td>
-					<td>MWF</td>
-					<td>9:00AM - 9:50AM</td>
-					<td>FB009</td>
-					<td>Stotts</td>
-					<td><input type="submit" value="Drop"></td>						
-				</tr>
 			</tbody>
 		</table>
 	</div>
 </div>
-<div id="geRequirements" class="tool inner">
+<div id="geRequirements" class="tool inner hidden">
 	<div class="toolHead"><h2>General Education Requirements</h2></div>
 	<div class="toolBody">
 		<table id="geTable">
@@ -170,37 +88,7 @@
 				<col class="ge">
 				<col class="course">
 			</colgroup>
-			<tbody>
-				<tr>
-					<td name="QR">QR:</td>	<td>MATH 231</td>
-					<td name="LF">LF:</td>	<td>-----</td>
-					<td name="FL">FL:</td>	<td>SPAN 203</td>
-					<td name="EN">EN:</td>	<td>-----</td>
-				</tr>
-				<tr>
-					<td name="PL">PL:</td>	<td>CHEM 101</td>
-					<td name="PX">PX:</td>	<td>CHEM 101L</td>
-					<td name="VP">VP:</td>	<td>-----</td>
-					<td name="LA">LA:</td>	<td>-----</td>
-				</tr>
-				<tr>
-					<td name="HS">HS:</td>	<td>-----</td>
-					<td name="SS1">SS:</td>	<td>ECON 101</td>
-					<td name="SS2">SS:</td>	<td>-----</td>
-					<td name="PH">PH:</td>	<td>PHIL 126</td>
-				</tr>
-				<tr>
-					<td name="CI">CI:</td>	<td>-----</td>
-					<td name="US">US:</td>	<td>-----</td>
-					<td name="QI">QI:</td>	<td>MATH 232</td>
-					<td name="NA">NA:</td>	<td>-----</td>
-				</tr>
-				<tr>
-					<td name="WB">WB:</td>	<td>HIST 142</td>
-					<td name="GL">GL:</td>	<td>-----</td>
-					<td name="BN">BN:</td>	<td>-----</td>
-					<td name="EE">EE:</td>	<td>-----</td>
-				</tr>				
+			<tbody>			
 			</tbody>
 		</table>
 	</div>
@@ -256,16 +144,6 @@
 					<col class="preqs">
 				</colgroup>
 				<tbody>
-					<tr>
-						<td>COMP</td>
-						<td>410</td>
-						<td>(COMP 401)</td>
-					</tr>
-					<tr>
-						<td>COMP</td>
-						<td>411</td>
-						<td>(COMP 401)</td>
-					</tr>
 				</tbody>
 			</table>
 		</div>
@@ -276,7 +154,6 @@
 	<div class="toolBody">
 		<table class="courseList">
 			<colgroup>
-				<col class="semester">
 				<col class="dept">
 				<col class="cnum">
 				<col class="grade">
@@ -285,34 +162,6 @@
 				<col class="instructor">
 			</colgroup>
 			<tbody>
-				<tr>
-					<td>S2013</td>
-					<td>COMP</td>
-					<td>116</td>
-					<td>A</td>
-					<td>MWF</td>
-					<td>9:00AM - 9:50AM</td>
-					<td>Stotts</td>
-				</tr>
-				<tr>
-					<td>S2013</td>
-					<td>COMP</td>
-					<td>116</td>
-					<td>A</td>
-					<td>MWF</td>
-					<td>9:00AM - 9:50AM</td>
-					<td>Pozefsky</td>
-				</tr>
-				<tr>
-					<td>S2013</td>
-					<td>COMP</td>
-					<td>116</td>
-					<td>A</td>
-					<td>MWF</td>
-					<td>9:00AM - 9:50AM</td>
-					<td>Mayer-Patel</td>
-					
-				</tr>
 			</tbody>
 		</table>
 	</div>
