@@ -14,9 +14,15 @@ $(document).ready(function () {
 	
 	$('#myCourses .courseList').on('click', 'input', null, dropSection);
 
-	updateMyCourses();
+	switchUser();
+	//updateMyCourses();
 	
 });
+
+var switchUser(){
+	userID = prompt(Enter your User ID:);
+	updateMyCourses();
+}
 
 var courseSearch = function(e){
 	e.preventDefault();
