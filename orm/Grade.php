@@ -6,6 +6,17 @@ class Grade
 	private $section;
 	private $student;
 
+	public static function create($grade, $section_id, $student_id) {
+    $mysqli = new mysqli("classroom.cs.unc.edu", "guok", "CH@ngemenow99Please!guok", "guokdb");
+
+    $result = $mysqli->query("insert into Grade values ('".$grade."', ".$section_id.", ".$student_id.")");
+    
+    if ($result) {
+      return new Grade($grade, $section_id, $student_id);
+    }
+    return null;
+  }
+
 	public static function findByID($studentid, $sectionid){
 		$mysqli = new mysqli("classroom.cs.unc.edu", "guok", "CH@ngemenow99Please!guok", "guokdb");
 
