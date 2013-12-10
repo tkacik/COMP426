@@ -43,19 +43,16 @@ var courseSearch = function(e){
 				"prof=" + 		instructor + 	"&" +
 				"honors=" + 	honors + 		"&" +
 				"lab=" + 		lab,
-		success: function(data, status, jqXHR) {
+		}).done(function(data, status, jqXHR) {
 			searches = data;
-		},
-		error: function(jqXHR, status, error) {
-			alert("ERROR");
-		}});
+		});
 	
 	var resultsList = $('#courseSearch table.courseList tbody').empty();
 	for(var i=0; i<searches.length; i++){
 		$.ajax(url_base + "/sections.php/" + searches[i], {
 			type: "GET",
-			dataType: "json",
-			success: function(data, status, jqXHR) {
+			dataType: "json"
+			}).done(function(data, status, jqXHR) {
 				if (data.grade = "current")
 				resultsList.append(
 						$('<tr></tr>').attr('data-section', searches[i])
@@ -66,10 +63,7 @@ var courseSearch = function(e){
 							.append($('<td></td>').html(data.location))
 							.append($('<td></td>').html(data.prof))
 							.append($('<td></td>').append('<input type="submit" value="Drop">'))
-				)},
-				error: function(jqXHR, status, error) {
-					alert("ERROR");
-				}});
+				)});
 	}
 	 
 };
