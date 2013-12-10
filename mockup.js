@@ -118,7 +118,7 @@ var updateMyCourses = function(){
 							.append($('<td></td>').html(data.location))
 							.append($('<td></td>').html(data.prof))
 							.append($('<td></td>').append('<input type="submit" value="Drop">'))
-				));
+				)});
 	}
 };
 
