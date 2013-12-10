@@ -48,8 +48,7 @@ var courseSearch = function(e){
 		},
 		error: function(jqXHR, status, error) {
 			alert(status);
-		}
-	});
+		}});
 	
 	var resultsList = $('#courseSearch table.courseList tbody').empty();
 	for(var i=0; i<searches.length; i++){
@@ -117,6 +116,9 @@ var updateMyCourses = function(){
 								.append($('<td></td>').html(data.time_slot))
 								.append($('<td></td>').html(data.prof))
 					);
+		},
+		error: function(jqXHR, status, error) {
+			alert(status);
 		}});
 	}
 };
