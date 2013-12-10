@@ -245,7 +245,7 @@ div.toolBody {
 
 .toolBody tbody {
 	max-height: 300px;
-	overflow: scroll;
+	overflow: auto;
 }
 
 .searchBar > div > * {
