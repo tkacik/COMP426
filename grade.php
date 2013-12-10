@@ -67,8 +67,6 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     $new_grade = false;
     if (isset($_REQUEST['enroll'])) {
       $new_grade = Grade::create("current", $section_id, $student_id);
-    } else if (isset($_REQUEST['delete'])){
-      $new_grade = "drop";
     }
 
     // Return JSON encoding of updated address

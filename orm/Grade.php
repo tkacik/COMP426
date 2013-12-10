@@ -17,6 +17,11 @@ class Grade
     return null;
   }
 
+  public function delete() {
+    $mysqli = new mysqli("classroom.cs.unc.edu", "guok", "CH@ngemenow99Please!guok", "guokdb");
+    $mysqli->query("delete from Grade where grade = '" . $this->grade . "' AND section = " . $this->section . " AND student = " . $this->student);
+  }
+
 	public static function findByID($studentid, $sectionid){
 		$mysqli = new mysqli("classroom.cs.unc.edu", "guok", "CH@ngemenow99Please!guok", "guokdb");
 
