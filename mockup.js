@@ -114,7 +114,7 @@ historyList.append(
 var addSection = function(e){
 	var sectionID = $(e).parents('.row');
 	alert(e);
-	alert(sectoinID);
+	alert(sectionID);
 	alert(sectionID.attr('data-section'));
 	alert(sectionID.val());
 	alert(sectionID.html());
