@@ -65,7 +65,7 @@ class Sections
 	    return $id_array;
 	}
 
-	public static function searchByParam($cnum, $dept, $equals, $instructor, $honors, $lab){
+	public static function searchByParam($cnum, $dept, $equals, $prof, $honors, $lab){
 		$mysqli = new mysqli("classroom.cs.unc.edu", "guok", "CH@ngemenow99Please!guok", "guokdb");
 
 		if ($equals == -1){
@@ -76,7 +76,57 @@ class Sections
 			$op = ">=";
 		}
 
-		$result = $mysqli->query("SELECT Section.id from Section, Course WHERE Course.course_num " .$op. " " .$cnum ." AND dept = (SELECT id FROM Department WHERE abbrev = " .$dept. ") AND Section.course = Course.id AND prof = (SELECT pid FROM Professor WHERE last = " .$instructor. " AND honors = " .$honors. " AND lab = " .$lab);
+		$secret == "";
+
+		if ($cnum == '' || $cnum == null){
+			$secret = $secret."";
+		} else {
+			$secret = $secret."Course.course_num " .$op. " " .$cnum;
+		}
+
+		if ($dept == '' || $dept == null){
+			$secret = $secret."";
+		} else {
+			if ($secret != ""){
+				$secret = $secret." AND dept = (SELECT id FROM Department WHERE abbrev = '" .$dept. "')";
+			} else {
+				$secret = $secret."dept = (SELECT id FROM Department WHERE abbrev = '" .$dept. "')";
+			}
+		}
+
+		if ($prof == '' || $prof == null){
+			$secret = $secret."";
+		} else{
+			if ($secret != ""){
+				$secret = $secret." AND prof = (SELECT pid FROM Professor WHERE last = '" .$prof. "')";
+			} else {
+				$secret = $secret."prof = (SELECT pid FROM Professor WHERE last = '" .$prof. "')";
+			}
+		}
+
+		if ($honors == '' || $honors == null){
+			$secret = $secret."";
+		} else {
+			if ($secret != ""){
+				$secret = $secret." AND honors = " .$honors. "";
+			} else {
+				$secret = $secret."honors = " .$honors. "";
+			}
+		}
+
+		if ($lab == '' || $lab == null){
+			$secret = $secret."";
+		} else {
+			if ($secret != ""){
+				$secret = $secret." AND lab = " .$lab. "";
+			} else {
+				$secret = $secret."lab = " .$lab. "";
+			}
+		}
+
+		$secret = $secret." AND Section.course = Course.id";
+
+		$result = $mysqli->query("SELECT Section.id from Section, Course WHERE ".$secret);
 
 		$id_array = array();
 

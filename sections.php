@@ -75,9 +75,9 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
       $equals = trim($_REQUEST['equals']);
     }
 
-    $instructor = false;
-    if (isset($_REQUEST['instructor'])) {
-      $instructor = trim($_REQUEST['instructor']);
+    $prof = false;
+    if (isset($_REQUEST['prof'])) {
+      $prof = trim($_REQUEST['prof']);
     }
 
     $honors = false;
@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
       $lab = trim($_REQUEST['lab']);
     }
 
-    $section = Sections::searchByParam($cnum, $dept, $equals, $instructor, $honors, $lab);
+    $section = Sections::searchByParam($cnum, $dept, $equals, $prof, $honors, $lab);
 
     header("Content-type: application/json");
     print(json_encode($section));
