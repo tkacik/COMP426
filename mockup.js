@@ -102,30 +102,17 @@ var updateMyCourses = function(){
 	}
 };
 
-/*else 
-historyList.append(
-		$('<tr></tr>').attr('data-section',courseHistory[i])
-			.append($('<td></td>').html(data.dept))
-			.append($('<td></td>').html(data.cnum))
-			.append($('<td></td>').html(data.grade))
-			.append($('<td></td>').html(data.days))
-			.append($('<td></td>').html(data.time_slot))
-			.append($('<td></td>').html(data.prof))
-);*/
-
 var addSection = function(e){
-	var sectionID = $(this).parents('tr');
-	alert(sectionID.attr('data-section'));
-	/*var url = url_base + "/grade.php/" + userID + "/" + sectionID;
-	$.ajax(url, {type: "POST", data: "enroll=true"});
-	updateMyCourses();*/
+	var sectionID = $(this).parents('tr').attr('data-section');
+	$.ajax(url_base + "/grade.php/" + userID + "/" + sectionID, 
+			{type: "POST", data: "enroll=true"});
+	updateMyCourses();
 };
 
 var dropSection = function(e){
-	/*var sectionID = $(e).parent('tr').attr('data-section');
-	var url = url_base + "/sections.php/" + userID + "/" sectionID;
-	$.ajax(url, {type: "GET", data: "delete=true"});
-	*/
+	var sectionID = $(e).parent('tr').attr('data-section');
+	$.ajax(url_base + "/sections.php/" + userID + "/" + sectionID, 
+			{type: "GET", data: "delete=true"});
 	updateMyCourses();
 };
 
