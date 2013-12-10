@@ -79,7 +79,7 @@ var updateMyCourses = function(){
 	var historyList = $('#courseHistory table.courseList tbody').empty();
 	var mySections = {};
 
-	$.ajax(url_base + "/sections.php", {
+	var ajax = $.ajax(url_base + "/sections.php", {
 		type: "GET",
 		dataType: "json",
 		data: {student: userID},
@@ -90,6 +90,7 @@ var updateMyCourses = function(){
 		error: function(jqXHR, status, error) {
 				alert("ERROR");
 	}});
+	alert(ajax.responseText)
 	for(var i=0; i<mySections.length; i++){
 		$.ajax(url_base + "/sections.php/" + mySections[i], {
 			type: "GET",
