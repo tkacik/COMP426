@@ -48,7 +48,7 @@ class Sections
 	    return $id_array;
 	}
 
-	public static function searchByParam($cnum, $dept, $equals, $instructor, $honors, $lab){
+	public static function searchByParam($cnum, $dept, $equals, $prof, $honors, $lab){
 		$mysqli = new mysqli("classroom.cs.unc.edu", "guok", "CH@ngemenow99Please!guok", "guokdb");
 
 		if ($equals == -1){
@@ -59,7 +59,7 @@ class Sections
 			$op = ">=";
 		}
 
-		$result = $mysqli->query("SELECT Section.id from Section, Course WHERE Course.course_num " .$op. " " .$cnum ." AND dept = (SELECT id FROM Department WHERE abbrev = " .$dept. ") AND Section.course = Course.id AND prof = (SELECT pid FROM Professor WHERE last = " .$instructor. " AND honors = " .$honors. " AND lab = " .$lab);
+		$result = $mysqli->query("SELECT Section.id from Section, Course WHERE Course.course_num " .$op. " " .$cnum ." AND dept = (SELECT id FROM Department WHERE abbrev = '" .$dept. "') AND Section.course = Course.id AND prof = (SELECT pid FROM Professor WHERE last = '" .$prof. "') AND honors = " .$honors. " AND lab = " .$lab);
 
 		$id_array = array();
 
