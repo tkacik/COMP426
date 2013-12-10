@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 
     $prof = false;
     if (isset($_REQUEST['prof'])) {
-      $instructor = trim($_REQUEST['prof']);
+      $prof = trim($_REQUEST['prof']);
     }
 
     $honors = false;
