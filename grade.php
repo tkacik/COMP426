@@ -63,32 +63,17 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     $student_id = intval($path_components[1]);
     $section_id = intval($path_components[2]);
 
-    $grade = Grade::findByID($student_id,$section_id);
-
-    if ($grade == null) {
-      // address not found.
-      header("HTTP/1.0 404 Not Found");
-      print("Student in section id: " . $section_id . " not found while attempting update.");
-      exit();
-    }
-
     // Validate values
     $new_grade = false;
     if (isset($_REQUEST['enroll'])) {
-      $new_grade = "current";
+      $new_grade = Grade::create("current", $section_id, $student_id);
     } else if (isset($_REQUEST['delete'])){
       $new_grade = "drop";
     }
 
-    // Update via ORM
-
-    if($new_grade != false){
-      $grade->setGrade($new_grade);
-    }
-
     // Return JSON encoding of updated address
     header("Content-type: application/json");
-    print($grade->getJSON());
+    print($new_grade->getJSON());
     exit();
   }
 }
