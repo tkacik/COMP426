@@ -94,18 +94,7 @@ var updateMyCourses = function(){
 		$.ajax(url_base + "/sections.php/" + mySections[i], {
 			type: "GET",
 			dataType: "json",
-			async: false,
-				/*else 
-					historyList.append(
-							$('<tr></tr>').attr('data-section',courseHistory[i])
-								.append($('<td></td>').html(data.dept))
-								.append($('<td></td>').html(data.cnum))
-								.append($('<td></td>').html(data.grade))
-								.append($('<td></td>').html(data.days))
-								.append($('<td></td>').html(data.time_slot))
-								.append($('<td></td>').html(data.prof))
-					);*/
-			},
+			async: false,	
 			error: function(jqXHR, status, error) {
 				alert("ERROR");
 		}}).done(function(data, status, jqXHR) {
@@ -122,6 +111,16 @@ var updateMyCourses = function(){
 	}
 };
 
+/*else 
+historyList.append(
+		$('<tr></tr>').attr('data-section',courseHistory[i])
+			.append($('<td></td>').html(data.dept))
+			.append($('<td></td>').html(data.cnum))
+			.append($('<td></td>').html(data.grade))
+			.append($('<td></td>').html(data.days))
+			.append($('<td></td>').html(data.time_slot))
+			.append($('<td></td>').html(data.prof))
+);*/
 
 var addSection = function(e){
 	/*var sectionID = $(e).parent('tr').attr('data-section');
