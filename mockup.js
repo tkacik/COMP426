@@ -56,7 +56,7 @@ var courseSearch = function(e){
 			}).done(function(data, status, jqXHR) {
 				if (data.grade = "current")
 				resultsList.append(
-						$('<tr></tr>').attr('data-section', searches[i])
+						$('<tr data-section='+mySection[i]+'></tr>')
 							.append($('<td></td>').html(data.dept))
 							.append($('<td></td>').html(data.cnum))
 							.append($('<td></td>').html(data.days))
@@ -88,7 +88,7 @@ var updateMyCourses = function(){
 			dataType: "json"
 			}).done(function(data, status, jqXHR) {
 				myCourseList.append(
-						$('<tr></tr>').attr('data-section', mySections[i])
+						$('<tr data-section='+mySection[i]+'></tr>')
 							.append($('<td></td>').html(data.dept))
 							.append($('<td></td>').html(data.cnum))
 							.append($('<td></td>').html(data.days))
@@ -113,11 +113,7 @@ historyList.append(
 
 var addSection = function(e){
 	var sectionID = $(this).parents('tr');
-	alert(e);
-	alert(sectionID);
 	alert(sectionID.attr('data-section'));
-	alert(sectionID.val());
-	alert(sectionID.html());
 	/*var url = url_base + "/grade.php/" + userID + "/" + sectionID;
 	$.ajax(url, {type: "POST", data: "enroll=true"});
 	updateMyCourses();*/
