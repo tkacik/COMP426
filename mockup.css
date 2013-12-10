@@ -241,6 +241,7 @@ div.toolBody {
 	border-bottom: 1px solid #424242;
 	border-left: 1px solid #424242;
 	border-right: 1px solid #424242;
+	max-height: 450px;
 }
 
 .searchBar > div > * {
